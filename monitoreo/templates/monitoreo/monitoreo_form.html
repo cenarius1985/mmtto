@@ -1,0 +1,174 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Inicio{% endblock %}
+{% block cardtitle %}{% include 'monitoreo/includes/mantenimiento_menu.html' %}{% endblock %}
+
+{% block content %}
+
+<div class="container">
+<form method="post">{% csrf_token %}
+    <div style="text-align:center;">
+       <h1>PAUTA DE MANTENIMIENTO PREVENTIVO</h1>
+       <p>EQUIPOS DE MONITORIZACIÓN HEMODINÁMICAS</p>
+       <p>MONITOR MULTIPARAMETRO.</p>
+		<label for="date">{{form.fecha}}</label>
+    </div>
+	<div class="container">
+		<div class="row text-center">
+			<table width="90%" border="2" class="table table-bordered table-striped">
+			<tbody>
+			<th scope="row"><p>Servicio</p></th>
+				<td><p>	
+					{{form.servicio}}
+				</p></td>
+					<th scope="row"><p>N Inventario</p></th>
+					<td>
+					{{form.inventario}}
+					</td>
+				<tr>
+					<th scope="row"><p>Equipo</p>
+					</th>
+					<td>{{form.nombre}}				</td>
+					<th scope="row"><p>Marca</p>
+					</th>
+					<td>{{form.marca}}
+					</td>             
+				</tr>
+				<tr>
+				<th scope="row"><p>Modelo</p></th>
+				<td>{{form.modelo}}</td>
+					<th scope="row"><p>N° Serie</p></th>
+				<td>{{form.serie}}</td>
+				</tr>
+			</tbody>
+			</table>
+		</div>	
+		<div class="row">
+			<table width="90%" border="1" class="table table-bordered table-striped">
+				<tbody>
+				<tr>
+					<th scope="row">
+					<table width="100%" border="1" class="table table-bordered table-striped">
+					<tbody>
+						<tr>
+						<th scope="row" width="95%"><p>Revisión de Funcionamiento</p></th>
+						<td>{{form.pauta1}}</td>
+						
+						</tr>
+						<tr>
+						<th scope="row"><p>Pruebas de Funcionamiento con test internos del equipo</p></th>
+						<td> {{form.pauta2}} </td>
+						
+						</tr>
+						<tr>
+						<th scope="row"><p>Chequeo de batería de respaldo</p></th>
+						<td> {{form.pauta3}}  </td>
+						
+						</tr>
+						<tr>
+						<th scope="row"><p>Revisión y chequeo externo del gabinete del equipo</p></th>
+						<td>{{form.pauta4}} </td>
+						</tr>
+						<tr>
+						<th scope="row"><p>No existen grietas ni botones dañados</p></th>
+						<td>{{form.pauta5}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>No hay distorsión en la pantalla</p></th>
+						<td>{{form.pauta6}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>La forma de Onda ECG, FC y el sonido QRS son correctos</p></th>
+						<td>{{form.pauta7}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>La forma de Onda y la FR son mostrados en forma correcta</p></th>
+						<td>{{form.pauta8}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>La forma de onda del pulso y el SPO2, datos pletismograficos son mostrados correctamente</p></th>
+						<td>{{form.pauta9}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Los datos PANI (sistolica,Diastolica y media) Son aceptables</p></th>
+						<td> {{form.pauta10}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>ELos conectores multiparametricos reconocen los distintos cables</p></th>
+						<td>{{form.pauta11}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Los limites de las alarmas funcionan correctamente</p></th>
+						<td>{{form.pauta12}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>El sonido de las alarmas funcionan correctamente</p></th>
+						<td>{{form.pauta13}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>El cable de alimentación eléctrica cuenta con toma de tierra</p></th>
+						<td>{{form.pauta14}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Los datos de configuración se guardan en el sistema operativo del equipo</p></th>
+						<td>{{form.pauta15}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Equipo Operativo</p></th>
+						<td>{{form.pauta16}}</td>
+						</tr>
+					</tbody>
+					</table>
+						<div style="padding-top:10px; text-align:center;">
+			      			<p>IDENTIFICACION DE PERSONAL CALIFICADO</p>
+            			</div>
+					<table width="100%" border="2" class="table table-bordered table-striped">
+						<tbody>
+						<tr>
+							<th scope="row"></th>
+							<td><p>Nombre</p></td>
+							<td><p>Firma</p></td>
+							<td><p>Timbre</p></td>
+						</tr>
+						<tr>
+							<th scope="row" width="10%"><p>Tecnico 1</p></th>
+							<td>{{form.tecnico1}}</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<th scope="row"><p>Responsable de MMTTO</p></th>
+							<td>{{form.responsable}}</td>
+							<td></td>
+							<td></td>
+						</tr>
+						</tbody>
+					</table>
+					<table width="100%" border="2" class="table table-bordered table-striped">
+			<tbody>
+      <div style="padding-top:10px; text-align:center;">
+			<p>OBSERVACIONES</p>
+      </div>
+      
+				<tr>
+				{{form.justificacion}}
+				</tr>
+			</tbody>
+		</table>
+					</th>
+				</tr>
+				</tbody>
+			</table>
+			</div>
+      <div style="text-align:center;">
+     		<input type="submit" class="btn btn-primary btn-block" name="submit" id="submit" value="Guardar" style="width : 100%">
+	  </div>
+	  <div style="text-align:center;"></div>
+</form>
+
+    </div>
+  
+  </div>
+  </div>
+</div>
+{% endblock %}

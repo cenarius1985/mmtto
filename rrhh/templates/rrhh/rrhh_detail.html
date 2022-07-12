@@ -1,0 +1,58 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Detalles...{% endblock %}
+{% block breadcrumb %}Detalle de RRHH{% endblock %}
+{% block cardtitle %}{% include 'rrhh/includes/rrhh_menu.html' %}{% endblock %}
+{% block content %}
+
+<div class="container">
+      <h1 align='center'>{{object.apellidos|upper}}/{{object.cargo|upper}}</h1>
+			<table width="50%" border="1" class="table table-bordered table-striped">
+				<tbody>
+				<tr>
+					<th scope="row">
+					<table border="1" class="table table-bordered table-striped">
+					<tbody>
+						<tr>
+							<th scope="row">Nombres</th>
+            				<td align="left">{{object.nombres}}</td>				
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Apellidos</th>
+            				<td align="left">{{object.apellidos}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Cargo</th>
+            				<td align="left">{{object.cargo}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Fijo/Apoyo</th>
+            				<td align="left">{{object.estado}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Unidad/Centro</th>
+            				<td align="left">{{object.unidad}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Funcion</th>
+            				<td align="left">{{object.funcion}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Calidad Contractual</th>
+            				<td align="left">{{object.contrato}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Fecha de Creacion </th>
+            				<td align="left">{{object.created}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Fecha de Modificacion</th>
+            				<td align="left">{{object.updated}}</td>
+						</tr>
+					</tbody>
+					</table>
+			  </tr>
+		  </tbody>
+	  </table>
+</div>
+{% endblock %}

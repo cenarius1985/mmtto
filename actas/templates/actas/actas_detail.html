@@ -1,0 +1,64 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Detalles...{% endblock %}
+{% block breadcrumb %}Detalle Acta ded Recepcion{% endblock %}
+{% block cardtitle %}{% include 'actas/includes/actas_menu.html' %}{% endblock %}
+{% block content %}
+
+<div class="container">
+      <h1 align='center'>{{object.serviciosolicita|upper}}/{{object.Fecha|date:"d-m-Y"}}</h1>
+			<table width="50%" border="1" class="table table-bordered table-striped">
+				<tbody>
+				<tr>
+					<th scope="row">
+					<table border="1" class="table table-bordered table-striped">
+					<tbody>
+						<tr>
+							<th scope="row">Fecha</th>
+            				<td align="left">{{object.Fecha}}</td>				
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Unidad o Centro de Costos</th>
+            				<td align="left">{{object.serviciosolicita}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Empresa</th>
+            				<td align="left">{{object.Proveedor}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">N° Guia Despacho</th>
+            				<td align="left">{{object.Guia}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">N° OC</th>
+            				<td align="left">{{object.OC}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">N° Licitacion</th>
+            				<td align="left">{{object.Licitacion}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Detalle</th>
+            				<td align="left">{{object.Detalle}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Fecha de Creacion </th>
+            				<td align="left">{{object.created}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Fecha de Modificacion</th>
+            				<td align="left">{{object.updated}}</td>
+						</tr>
+						<tr>
+							{% if object.Adjuntar_Archivo %}
+							<th scope="row">Documento</th>
+							<td ><a href="{{ object.Adjuntar_Archivo.url }}">Descargar</a></td>
+							{% endif %}
+                		</tr>
+					</tbody>
+					</table>
+			  </tr>
+		  </tbody>
+	  </table>
+</div>
+{% endblock %}

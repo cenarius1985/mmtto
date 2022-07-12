@@ -1,0 +1,42 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Detalles...{% endblock %}
+{% block breadcrumb %}Detalle Kilos Por Servicio{% endblock %}
+{% block cardtitle %}{% include 'kilosservicio/includes/kilosservicio_menu.html' %}{% endblock %}
+{% block content %}
+
+<div class="container">
+      <h1 align='center'>{{object.serviciosolicita|upper}}/{{object.Fecha|date:"d-m-Y"}}</h1>
+			<table width="50%" border="1" class="table table-bordered table-striped">
+				<tbody>
+				<tr>
+					<th scope="row">
+					<table border="1" class="table table-bordered table-striped">
+					<tbody>
+						<tr>
+							<th scope="row">Fecha</th>
+            				<td align="left">{{object.Fecha}}</td>				
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Unidad o Centro de Costos</th>
+            				<td align="left">{{object.serviciosolicita}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Cantidad (Kilos)</th>
+            				<td align="left">{{object.Cantidad}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Fecha de Creacion </th>
+            				<td align="left">{{object.created}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Fecha de Modificacion</th>
+            				<td align="left">{{object.updated}}</td>
+						</tr>
+					</tbody>
+					</table>
+			  </tr>
+		  </tbody>
+	  </table>
+</div>
+{% endblock %}

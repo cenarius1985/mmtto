@@ -1,0 +1,11 @@
+{% load static %}
+{% if request.user.is_superuser %}
+<!-- Navbar (sit on top) -->
+<nav style="margin:-2.5% 0;">
+  <div class="container-fluid" >
+  <td><a class="glyphicon glyphicon-home" href="{% url 'capacitacion:cursotemplate' %}"><i class='fas fa-house-damage' style='font-size:20px;color:red'></i></a></td>
+      <a class="glyphicon glyphicon-home" href="{% url 'capacitacion:capacitacion' %}"><i class='fas fa-clipboard-list' style='font-size:20px;color:red'></i></a>
+      <a class="glyphicon glyphicon-plus" href="{% url 'capacitacion:createcapacitacion' %}"><i class='fas fa-plus-circle' style='font-size:20px;color:red'></i></a>
+  </div>
+</nav>
+{% endif %}

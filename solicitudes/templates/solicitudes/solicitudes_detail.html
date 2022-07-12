@@ -1,0 +1,68 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Detalles...{% endblock %}
+{% block breadcrumb %}Detalle de Solicitud{% endblock %}
+{% block cardtitle %}{% include 'solicitudes/includes/solicitudes_menu.html' %}{% endblock %}
+{% block content %}
+
+<div class="container">
+      <h1 align='center'>{{object.detalle|upper}}/{{object.fecha|date:"d-m-Y"}}</h1>
+			<table width="50%" border="1" class="table table-bordered table-striped">
+				<tbody>
+				<tr>
+					<th scope="row">
+					<table border="1" class="table table-bordered table-striped">
+					<tbody>
+						<tr>
+							<th scope="row">Recepcion SSGG</th>
+            				<td align="left">{{object.fecha}}</td>				
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">N° Adquisicion</th>
+            				<td align="left">{{object.numeroadquisicion}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Estado de Solicitud</th>
+            				<td align="left">{{object.estadoOT}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Servicio que Solicita</th>
+            				<td align="left">{{object.servicioorigen}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">SDA</th>
+            				<td align="left">{{object.fechasda}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Abastecimiento</th>
+            				<td align="left">{{object.fechaabast}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Detalle</th>
+            				<td align="left">{{object.detalle}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Observaciones</th>
+            				<td align="left">{{object.observaciones}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Fecha de Creacion </th>
+            				<td align="left">{{object.created}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Fecha de Modificacion</th>
+            				<td align="left">{{object.updated}}</td>
+						</tr>
+						<tr>
+							{% if object.Adjuntar_Archivo %}
+							<th scope="row">Documento</th>
+							<td ><a href="{{ object.Adjuntar_Archivo.url }}">Descargar</a></td>
+							{% endif %}
+              			 </tr>
+					</tbody>
+					</table>
+			  </tr>
+		  </tbody>
+	  </table>
+</div>
+{% endblock %}

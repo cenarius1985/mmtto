@@ -1,0 +1,129 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Interno{% endblock %}
+{% block breadcrumb %}MMTTO Interno{% endblock %}
+{% block cardtitle %}{% include 'monitoreo/includes/mantenimiento_menu.html' %}{% endblock %}
+{% block content %}
+
+<div class="card">
+            <div class="card-header">
+              <table style="margin: 0 auto;" class="table table-bordered table-striped">
+                    <form action="{% url 'monitores:filtroinventario' %}" method="GET"> {% csrf_token %}
+                      <td class="active"><input type="text" name="buscar" class="form-control"></td>
+                      <td class="active"><input type="submit" value="BUSCAR" class="btn btn-success"></td>
+                    </form>
+              </table>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th><i class='fas fa-cog' style='font-size:20px;color:black'></i></th>
+                  {% if request.user.is_staff %}
+                  <th><i class='fas fa-arrow-alt-circle-down' style='font-size:20px;color:black'></i></th>
+                  <th><i class="fa fa-trash" style="font-size:20px"></i></th>
+                  {% endif %}
+                  <th>ID</th>
+                  <th>Fecha</th>
+                  <th>Servicio</th>
+                  <th>Nombre</th>
+                  <th>Marca</th>
+                  <th>Modelo</th>
+                  <th>Inventario</th>
+                  <th>N° Serie</th>
+                </tr>
+                </thead>
+                {% for article in object_list|dictsort:"id" reversed %}
+                <tbody>
+                <tr>
+                    <!-- items importantes que deben estar primero -->
+                    {% if article.tecnico1 == 'COVID-19 ventilador' %}
+                    <th scope="row"><a href="{% url 'pautas:covidventiladordetail' article.id %}"><i class='fas fa-cog' style='font-size:20px;color:green'></i></a></th>
+                    {% elif article.tecnico1 == 'COVID-19 Monitoreo' %}
+                    <th scope="row"><a href="{% url 'pautas:covidmonitordetail' article.id %}"><i class='fas fa-cog' style='font-size:20px;color:green'></i></a></th>
+                    {% elif article.tecnico1 == 'Alta de Equipos' %}
+                    <th scope="row"><a href="{% url 'pautas:altadetail' article.id %}"><i class='fas fa-cog' style='font-size:20px;color:green'></i></a></th>
+                    {% elif article.tecnico1 == 'Baja de Equipos' %}
+                    <th scope="row"><a href="{% url 'pautas:bajadetail' article.id %}"><i class='fas fa-cog' style='font-size:20px;color:green'></i></a></th>
+                    {% elif article.tecnico1 == 'COMODATO o ARRIENDO' %}
+                    <th scope="row"><a href="{% url 'pautas:comodatodetail' article.id %}"><i class='fas fa-cog' style='font-size:20px;color:green'></i></a></th>
+                    {% elif article.tecnico1 == 'Reingreso de Equipo Fuera de Servicio' %}
+                    <th scope="row"><a href="{% url 'pautas:reingresodetail' article.id %}"><i class='fas fa-cog' style='font-size:20px;color:green'></i></a></th>
+                    {% elif article.tecnico1 == 'Equipo Fuera de Servicio' %}
+                    <th scope="row"><a href="{% url 'pautas:fueradetail' article.id %}"><i class='fas fa-cog' style='font-size:20px;color:green'></i></a></th>
+                    <!-- items importantes que deben estar primero -->
+                    {% elif article.nombre == 'Monitor Multiparametro' %}
+                    <th scope="row"><a href="{% url 'monitores:monitor' article.id article.nombre|slugify %}"><i class='fas fa-cog' style='font-size:20px;color:green'></i></a></th>
+                    {% elif article.nombre == 'Monitor de Signos Vitales' %}
+                    <th scope="row"><a href="{% url 'vitales:vital' article.id article.nombre|slugify %}"><i class='fas fa-cog' style='font-size:20px;color:green'></i></a></th>
+                    {% elif article.nombre == 'Maquina de Anestesia' %}
+                    <th scope="row"><a href="{% url 'anestesias:anestesia' article.id article.nombre|slugify %}"><i class='fas fa-cog' style='font-size:20px;color:green'></i></a></th>
+                    {% elif article.nombre == 'Incubadora Fija/Transporte' %}
+                    <th scope="row"><a href="{% url 'incubadoras:incubadora' article.id article.nombre|slugify %}"><i class='fas fa-cog' style='font-size:20px;color:green'></i></a></th>
+                    {% elif article.nombre ==  'Oximetro de Pulso' %}
+                    <th scope="row"><a href="{% url 'oximetros:oximetro' article.id article.nombre|slugify %}"><i class='fas fa-cog' style='font-size:20px;color:green'></i></a></th>
+                    {% elif article.nombre == 'Ventilador Mecanico' %}
+                    <th scope="row"><a href="{% url 'ventiladores:ventilador' article.id article.nombre|slugify %}"><i class='fas fa-cog' style='font-size:20px;color:green'></i></a></th>
+                    {% elif article.nombre == 'Desfibrilador' %}
+                    <th scope="row"><a href="{% url 'desfibriladores:desfibrilador' article.id article.nombre|slugify %}"><i class='fas fa-cog' style='font-size:20px;color:green'></i></a></th>
+                    {% elif article.nombre == 'Calefaccion Centralizada' %}
+                    <th scope="row"><a href="{% url 'pautas:calefacciondetail' article.id %}"><i class='fas fa-cog' style='font-size:20px;color:green'></i></a></th>
+                    {% elif article.nombre == 'Estanque de Agua Potable' %}
+                    <th scope="row"><a href="{% url 'pautas:estanqueaguadetail' article.id %}"><i class='fas fa-cog' style='font-size:20px;color:green'></i></a></th>
+                    {% elif article.nombre == 'Techumbre' %}
+                    <th scope="row"><a href="{% url 'pautas:techumbredetail' article.id %}"><i class='fas fa-cog' style='font-size:20px;color:green'></i></a></th>
+                    {% elif article.nombre == 'Sistema de Aspiracion Centralizado' %}
+                    <th scope="row"><a href="{% url 'pautas:aspiraciondetail' article.id %}"><i class='fas fa-cog' style='font-size:20px;color:green'></i></a></th>
+                    {% elif article.nombre == 'Sistema de Gases Clinicos Centralizados' %}
+                    <th scope="row"><a href="{% url 'pautas:gasesdetail' article.id %}"><i class='fas fa-cog' style='font-size:20px;color:green'></i></a></th>
+                    {% elif article.nombre == 'Sistema de Transporte Vertical' %}
+                    <th scope="row"><a href="{% url 'pautas:montacargadetail' article.id %}"><i class='fas fa-cog' style='font-size:20px;color:green'></i></a></th>
+                    {% elif article.nombre == 'Sistema de Iluminacion' %}
+                    <th scope="row"><a href="{% url 'pautas:iluminaciondetail' article.id %}"><i class='fas fa-cog' style='font-size:20px;color:green'></i></a></th>
+                    {% else %}
+                    <th scope="row"><a href="{% url 'pautas:generaldetail' article.id %}"><i class='fas fa-cog' style='font-size:20px;color:green'></i></a></th>
+                    {% endif %}
+
+                  {% if request.user.is_staff %}
+                  <td class="active"><a href="{% url 'monitores:monitoreoupdate' article.id %}"><i class='fab fa-adn' style='font-size:20px;color:green'></i></a></td>
+                  <td class="active"><a href="{% url 'monitores:deletemonitoreo' article.id %}"><i class="fa fa-trash" style="font-size:20px;color:red"></i></a></td>
+                  {% endif %}
+                  <td class="active">{{article.id}}</td>
+                  <td class="active">{{article.fecha|date:"d-m-Y"}}</td>
+                  <td class="success">{{article.servicio}}</td>
+                  {% if article.tecnico1 == 'Alta de Equipos' %}
+                  <td class="active">{{article.tecnico1}}</td>
+                  {% elif article.tecnico1 == 'Baja de Equipos' %}
+                  <td class="active">{{article.tecnico1}}</td>
+                  {% elif article.tecnico1 == 'Equipo Fuera de Servicio' %}
+                  <td class="active">{{article.tecnico1}}</td>
+                  {% elif article.tecnico1 == 'Reingreso de Equipo Fuera de Servicio' %}
+                  <td class="active">{{article.tecnico1}}</td>
+                  {% elif article.tecnico1 == 'COMODATO o ARRIENDO' %}
+                  <td class="active">{{article.tecnico1}}</td>
+                  {% else %}
+                  <td class="active">{{article.nombre}}</td>
+                  {% endif %}
+                  <td class="active">{{article.marca}}</td>
+                  <td class="active">{{article.modelo}}</td>
+                  <td class="active">{{article.inventario}}</td>  
+                  <td class="active">{{article.serie}}</td>
+                    
+                  
+                </tr>
+                {% empty %}
+                        <li>No articles yet.</li>
+                {% endfor %}
+                </tbody>
+                </tfoot>
+              </table>
+<!-- #############################Paginacion################################### -->
+         {% include 'core/includes/paginacion.html' %}   
+<!-- #############################Termino de paginacion################################### -->
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+
+{% endblock %}

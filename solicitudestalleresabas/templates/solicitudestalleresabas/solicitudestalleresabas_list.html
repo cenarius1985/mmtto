@@ -1,0 +1,67 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Solicitudes{% endblock %}
+{% block breadcrumb %}Listado Estado de Pago{% endblock %}
+{% block cardtitle %}{% include 'solicitudestalleresabas/includes/solicitudestalleresabas_menu.html' %}{% endblock %}
+{% block content %}
+
+<div class="card">
+            <div class="card-header">
+              <table style="margin: 0 auto;">
+                    <form action="{% url 'solicitudestalleresabas:filtrosolicitudestalleresabas' %}" method="GET"> {% csrf_token %}
+                      <td class="active"><input type="text" name="buscar" class="form-control"></td>
+                      <td class="active"><input type="submit" value="BUSCAR" class="btn btn-success"></td>
+                    </form>
+              </table>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th><i class='fas fa-cog' style='font-size:20px;color:black'></i></th>
+                  <th><i class='fas fa-arrow-alt-circle-down' style='font-size:20px;color:black'></i></th>
+                  <th><i class="fa fa-trash" style="font-size:20px"></i></th>
+                  <th>ID</th>
+                  <th>Recepcion SSGG</th>
+                  <th>Tipo Documento</th>
+                  <th>Estado de Solicitud</th>
+                  <th>Servicio Origen</th>
+                  <th>SDA</th>
+                  <th>Abastecimiento</th>
+                  <th>Fecha OC</th>
+                  <th>Fecha Factura</th>
+                  <th>Detalle</th>
+        
+                </thead>
+                {% for article in object_list|dictsort:"id" reversed %}
+                <tbody>
+                <tr>
+                  <td class="active"><a href="{% url 'solicitudestalleresabas:detailsolicitudestalleresabas' article.id %}"><i class='fas fa-cog' style='font-size:20px;color:green'></i></a></td>
+                  <td class="active"><a href="{% url 'solicitudestalleresabas:updatesolicitudestalleresabas' article.id %}"><i class='fab fa-adn' style='font-size:20px;color:green'></i></a></td>
+                  <td class="active"><a href="{% url 'solicitudestalleresabas:deletesolicitudestalleresabas' article.id %}"><i class="fa fa-trash" style="font-size:20px;color:red"></i></a></td>
+                  <td class="active">{{article.id}}</td>
+                  <td class="active">{{article.fecha|date:"d-m-Y"}}</td>
+                  <td class="active">{{article.numeroadquisicion}}</td>
+                  <td class="active">{{article.estadoOT}}</td>
+                  <td class="active">{{article.servicioorigen}}</td>
+                  <td class="active">{{article.fechasda|date:"d-m-Y"}}</td>
+                  <td class="active">{{article.fechaabast|date:"d-m-Y"}}</td>
+                  <td class="active">{{article.fecha_OrdenCompra|date:"d-m-Y"}}</td>
+                  <td class="active">{{article.fecha_Factura|date:"d-m-Y"}}</td>
+                  <td class="active">{{article.detalle| truncatechars:50}}</td> 
+                </tr>
+                {% empty %}
+                        <li>No articles yet.</li>
+                {% endfor %}
+                </tbody>
+                </tfoot>
+              </table>
+<!-- #############################Paginacion################################### -->
+         {% include 'core/includes/paginacion.html' %}   
+<!-- #############################Termino de paginacion################################### -->
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+{% endblock %}

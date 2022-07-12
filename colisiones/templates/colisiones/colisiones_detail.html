@@ -1,0 +1,88 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Detalles...{% endblock %}
+{% block breadcrumb %}Detalle de Colision{% endblock %}
+{% block cardtitle %}{% include 'colisiones/includes/colisiones_menu.html' %}{% endblock %}
+{% block content %}
+
+<div class="container">
+      <h1 align='center'>{{object.patente|upper}}/{{object.unidad|upper}}</h1>
+			<table width="50%" border="1" class="table table-bordered table-striped">
+				<tbody>
+				<tr>
+					<th scope="row">
+					<table border="1" class="table table-bordered table-striped">
+					<tbody>
+						<tr>
+							<th scope="row">Fecha de Colision</th>
+            				<td align="left">{{object.fecha}}</td>				
+						</tr>
+						<tr>
+							<th scope="row">Hora de Colision</th>
+            				<td align="left">{{object.colision}}</td>				
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Fecha de Informe al SDA</th>
+            				<td align="left">{{object.fechasda}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Unidad</th>
+            				<td align="left">{{object.unidad}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Nombre del Conductor</th>
+            				<td align="left">{{object.nombre}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Numero de Patente</th>
+            				<td align="left">{{object.patente}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Costos de Reparacion</th>
+            				<td align="left">{{object.valor}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Horario de Salida</th>
+            				<td align="left">{{object.salida}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Direccion de Salida</th>
+            				<td align="left">{{object.inicio}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Direccion de Final</th>
+            				<td align="left">{{object.final}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Kilometraje de Colision</th>
+            				<td align="left">{{object.kilometraje}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Numero de Motor</th>
+            				<td align="left">{{object.numeromotor}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Numero de Chasis</th>
+            				<td align="left">{{object.numerochasis}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Fecha de Creacion</th>
+            				<td align="left">{{object.created}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Fecha de Modificacion</th>
+            				<td align="left">{{object.updated}}</td>
+						</tr>
+						<tr>
+							{% if object.Adjuntar_Archivo %}
+							<th scope="row">Documento</th>
+							<td ><a href="{{ object.Adjuntar_Archivo.url }}">Descargar</a></td>
+							{% endif %}
+                		</tr>
+					</tbody>
+					</table>
+			  </tr>
+		  </tbody>
+	  </table>
+</div>
+{% endblock %}

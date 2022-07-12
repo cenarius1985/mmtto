@@ -1,0 +1,63 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Boletas{% endblock %}
+{% block breadcrumb %}BOLETAS DE CORTE Y CONFECCION{% endblock %}
+{% block cardtitle %}{% include 'roperiaconfeccion/includes/roperiaconfeccion_menu.html' %}{% endblock %}
+{% block content %}
+
+<div class="card">
+            <div class="card-header">
+              <table style="margin: 0 auto;">
+                    <form action="{% url 'roperiaconfeccion:filtroroperiaconfeccion' %}" method="GET"> {% csrf_token %}
+                      <td class="active"><input type="text" name="buscar" class="form-control"></td>
+                      <td class="active"><input type="submit" value="BUSCAR" class="btn btn-success"></td>
+                    </form>
+              </table>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th><i class='fas fa-cog' style='font-size:20px;color:black'></i></th>
+                  <th><i class='fas fa-arrow-alt-circle-down' style='font-size:20px;color:black'></i></th>
+                  <th><i class="fa fa-trash" style="font-size:20px"></i></th>
+                  <th>ID</th>
+                  <th>Fecha OC</th>
+                  <th>N° Boleta</th>
+                  <th>RUT</th>
+                  <th>Empresa</th>
+                  <th>Detalle</th>
+                  <th>Valor</th>
+                  <th>N° OC</th>
+                </tr>
+                </thead>
+                {% for article in object_list|dictsort:"id" reversed %}
+                <tbody>
+                <tr>
+                  <td class="active"><a href="{% url 'roperiaconfeccion:detailroperiaconfeccion' article.id %}"><i class='fas fa-cog' style='font-size:20px;color:green'></i></a></td>
+                  <td class="active"><a href="{% url 'roperiaconfeccion:updateroperiaconfeccion' article.id %}"><i class='fab fa-adn' style='font-size:20px;color:green'></i></a></td>
+                  <td class="active"><a href="{% url 'roperiaconfeccion:deleteroperiaconfeccion' article.id %}"><i class="fa fa-trash" style="font-size:20px;color:red"></i></a></td>
+                  <td class="active">{{article.id}}</td>
+                  <td class="success">{{article.Fecha_OC|date:"d-m-Y"}}</td>
+                  <td class="active">{{article.Numero_Boleta}}</td>
+                  <td class="active">{{article.RUT}}</td>
+                  <td class="active">{{article.Nombre_Empresa}}</td>
+                  <td class="active">{{article.Detalle}}</td>
+                  <td class="active">{{article.Valor}}</td>
+                  <td class="active">{{article.OC}}</td> 
+                </tr>
+                {% empty %}
+                        <li>No articles yet.</li>
+                {% endfor %}
+                </tbody>
+                </tfoot>
+              </table>
+<!-- #############################Paginacion################################### -->
+         {% include 'core/includes/paginacion.html' %}   
+<!-- #############################Termino de paginacion################################### -->
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+{% endblock %}

@@ -1,0 +1,259 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+<div class="container">
+<form method="post">{% csrf_token %}
+    <div style="padding-top:20px; text-align:center;">
+       <h1>PAUTA DE MANTENIMIENTO PREVENTIVO</h1>
+       <p>EQUIPOS DE MONITORIZACIÓN HEMODINÁMICAS</p>
+       <p>MAQUINA DE ANESTESIA.</p>
+		<label for="date">Fecha{{object.fecha}}</label>
+    </div>
+	<div class="container">
+		<div class="row text-center">
+			<table width="90%" border="2" class="table table-bordered table-striped">
+			<tbody>
+			<th scope="row"><p>Servicio</p></th>
+				<td><p>	
+					{{object.servicio}}
+				</p></td>
+					<th scope="row"><p>N Inventario</p></th>
+					<td>
+					{{object.inventario}}
+					</td>
+				<tr>
+					<th scope="row"><p>Equipo</p>
+					</th>
+					<td>{{object.nombre}}</td>
+					<th scope="row"><p>Marca</p>
+					</th>
+					<td>{{object.marca}}
+					</td>
+				</tr>
+				<tr>
+				<th scope="row"><p>Modelo</p></th>
+				<td>{{object.modelo}}</td>
+					<th scope="row"><p>N° Serie</p></th>
+				<td>{{object.serie}}</td>
+				</tr>
+			</tbody>
+			</table>
+		</div>	
+		<div class="row">
+			<table width="90%" border="1" class="table table-bordered table-striped">
+				<tbody>
+				<tr>
+					<th scope="row">
+					<table width="100%" border="1" class="table table-bordered table-striped">
+					<tbody>
+						<tr>
+							<td>Chequeo Visual:Carcasa Frontal y Trasera</td>
+							<td width="5%">{{ object.pauta1 }}</td>
+							<td>Chequeo Visual:Etiquetas</td>
+							<td width="5%">{{ object.pauta2 }}</td>
+						  </tr>
+						  <tr>
+							<td>Chequeo Visual:Accesorios</td>
+							<td width="5%">{{ object.pauta3 }}</td>
+							<td>Chequeo Visual:Estado de Software</td>
+							<td width="5%">{{ object.pauta4 }}</td>
+						  </tr>
+						  <tr>
+							<td>Chequeo Visual:Panel frontal</td>
+							<td width="5%">{{ object.pauta5 }}</td>
+							<td>Chequeo Visual:Panel frontal</td>
+							<td width="5%">{{ object.pauta6 }}</td>
+						  </tr>
+						  <tr>
+							<td>Chequeo Visual:Cable de poder</td>
+							<td width="5%">{{ object.pauta7 }}</td>
+							<td>Chequeo Visual:Batería de respaldo</td>
+							<td width="5%">{{ object.pauta8 }}</td>
+						  </tr>
+						  <tr>
+							<td>Sistema de Alta Presión:Chequeo de yugo de O2</td>
+							<td width="5%">{{ object.pauta9 }}</td>
+							<td>Sistema de Alta Presión:</td>
+							<td width="5%">{{ object.pauta10 }}</td>
+						  </tr>
+						  <tr>
+							<td>Sistema de Alta Presión:Chequeo de yugo de N2O</td>
+							<td width="5%">{{ object.pauta11 }}</td>
+							<td>Sistema de Alta Presión:Chequeo de yugo de Aire</td>
+							<td width="5%">{{ object.pauta12 }}</td>
+						  </tr>
+						  <tr>
+							<td>Sistema de Alta Presión:Limpieza de filtros</td>
+							<td width="5%">{{ object.pauta13 }}</td>
+							<td>Sistema de Alta Presión:Reemplazo de empaquetadura de yugo</td>
+							<td width="5%">{{ object.pauta14 }}</td>
+						  </tr>
+						  <tr>
+							<td>Sistema de Alta Presión:Verificación de entrada de presión 50 lbs</td>
+							<td width="5%">{{ object.pauta15 }}</td>
+							<td>Sistema de Alta Presión:Verificación de reguladores</td>
+							<td width="5%">{{ object.pauta16 }}</td>
+						  </tr>
+						  <tr>
+							<td>Sistema de Alta Presión:Verificación de manómetros</td>
+							<td width="5%">{{ object.pauta17 }}</td>
+							<td>Sistema de baja presión:Revisión y calibración de válvula de flujómetro de O2</td>
+							<td width="5%">{{ object.pauta18 }}</td>
+						  </tr>
+						  <tr>
+							<td>Sistema de baja presión:Revisión y calibración de válvula de flujómetro de N2O</td>
+							<td width="5%">{{ object.pauta19 }}</td>
+							<td>Sistema de baja presión:Revisión y calibración de válvula de flujómetro de Aire</td>
+							<td width="5%">{{ object.pauta20 }}</td>
+						  </tr>
+						  <tr>
+							<td>Sistema de baja presión:Chequeo de fugas</td>
+							<td width="5%">{{ object.pauta21}}</td>
+							<td>Sistema de baja presión:Verificación de flujos </td>
+							<td width="5%">{{ object.pauta22 }}</td>
+						  </tr>
+						  <tr>
+							<td>Sistema de baja presión:Verificación de regulador de 2da (segunda) etapa</td>
+							<td width="5%">{{ object.pauta23 }}</td>
+							<td>Sistema de baja presión:Revisión de sistema de corte N2O/Aire por falta de O2</td>
+							<td width="5%">{{ object.pauta24 }}</td>
+						  </tr>
+						  <tr>
+							<td>Sistema de baja presión:</td>
+							<td width="5%">{{ object.pauta25 }}</td>
+							<td>Sistema de baja presión:Revisión de sistema proporción de O2/N2O</td>
+							<td width="5%">{{ object.pauta26 }}</td>
+						  </tr>
+						  <tr>
+							<td>Sistema de baja presión:Revisión de manifold de vaporizadores</td>
+							<td width="5%">{{ object.pauta27 }}</td>
+							<td>Sistema de baja presión:Equipo Operativo</td>
+							<td width="5%">{{ object.pauta28 }}</td>
+						  </tr>
+						  <tr>
+							<td>Sistema Absorbedor:Revisión y reemplazo de empaquetadura de canister</td>
+							<td width="5%">{{ object.pauta29 }}</td>
+							<td>Sistema Absorbedor:Revisión de válvula APL</td>
+							<td width="5%">{{ object.pauta30 }}</td>
+						  </tr>
+						  <tr>
+							<td>Sistema Absorbedor:Verificación de manómetro de presión de vía aérea (ajuste a cero)</td>
+							<td width="5%">{{ object.pauta31 }}</td>
+							<td>Revisión de válvula inhalatoria:Empaquetadura</td>
+							<td width="5%">{{ object.pauta32 }}</td>
+						  </tr>
+						  <tr>
+							<td>Revisión de válvula inhalatoria:Disco de válvula</td>
+							<td width="5%">{{object.pauta33}}</td>
+							<td>Revisión de válvula inhalatoria:Sensor de flujo</td>
+							<td width="5%">{{ object.pauta34 }}</td>
+						  </tr>
+						  <tr>
+							<td>Revisión de válvula inhalatoria:Chequeo de fugas </td>
+							<td width="5%">{{ object.pauta35 }}</td>
+							<td>Revisión de válvula inhalatoria:Hermeticidad</td>
+							<td width="5%">{{ object.pauta36 }}</td>
+						  </tr>
+						  <tr>
+							<td>Chequeo de vaporizadores anestesicos (00)</td>
+							<td width="5%">{{ object.pauta37 }}</td>
+							<td>Chequeo de vaporizadores anestesicos (11)</td>
+							<td width="5%">{{ object.pauta38 }}</td>
+						  </tr>
+						  <tr>
+							<td>Chequeo de vaporizadores anestesicos (22)</td>
+							<td width="5%">{{ object.pauta39 }}</td>
+							<td>Chequeo de vaporizadores anestesicos (44)</td>
+							<td width="5%">{{ object.pauta40 }}</td>
+						  </tr>
+						  <tr>
+							<td>Chequeo de vaporizadores anestesicos (66)</td>
+							<td width="5%">{{ object.pauta41 }}</td>
+							<td>Ventilador Mecánico:Porcentaje de Oxigeno</td>
+							<td width="5%">{{ object.pauta42 }}</td>
+						  </tr>
+						  <tr>
+							<td>Ventilador Mecánico:Volumen Corriente</td>
+							<td width="5%">{{ object.pauta43 }}</td>
+							<td>Ventilador Mecánico:Volumen Minuto</td>
+							<td width="5%">{{ object.pauta44 }}</td>
+						  </tr>
+						  <tr>
+							<td>Ventilador Mecánico:Presión de vía aérea</td>
+							<td width="5%">{{ object.pauta45 }}</td>
+							<td>Ventilador Mecánico:Frecuencia respiratoria</td>
+							<td width="5%">{{ object.pauta46 }}</td>
+						  </tr>
+						  <tr>
+							<td>Ventilador Mecánico:Modo ventilatorio</td>
+							<td width="5%">{{ object.pauta47 }}</td>
+							<td>Ventilador Mecánico:Alarmas Baja presión en vía aérea</td>
+							<td width="5%">{{ object.pauta48 }}</td>
+						  </tr>
+						  <tr>
+							<td>Ventilador Mecánico:Alarmas Alta presión en vía aérea</td>
+							<td width="5%">{{ object.pauta49 }}</td>
+							<td>Ventilador Mecánico:Alarmas Volumen corriente bajo</td>
+							<td width="5%">{{ object.pauta50 }}</td>
+						  </tr>
+						  <tr>
+							<td>Ventilador Mecánico:Alarmas Volumen corriente alto</td>
+							<td width="5%">{{ object.pauta51 }}</td>
+							<td>Ventilador Mecánico:Alarmas Baja concentración de O2</td>
+							<td width="5%">{{ object.pauta52 }}</td>
+						  </tr>
+						  <tr>
+							<td>Ventilador Mecánico:Calibración de celda de oxigeno a 21%</td>
+							<td width="5%">{{ object.pauta53 }}</td>
+							<td>Ventilador Mecánico:Ventilador Mecánico:Calibración de celda de oxigeno a 100%</td>
+							<td width="5%">{{ object.pauta54 }}</td>
+						  </tr>
+						  <tr>
+							<td>Ventilador Mecánico:Calibración de sensores de flujo</td>
+							<td width="5%">{{ object.pauta55 }}</td>
+							<td>Equipo Operativo</td>
+							<td width="5%">{{ object.pauta56 }}</td>
+						  </tr>
+					</tbody>
+					</table>
+						<div style="padding-top:10px; text-align:center;">
+			      <p>IDENTIFICACION DE PERSONAL CALIFICADO</p>
+            </div>
+			{% include 'core/includes/firmas.html' %}
+				<div style="padding-top:10px;"></div>
+			<table width="100%" border="2" class="table table-bordered table-striped">
+	<tbody>
+		<tr>
+		<table width="100%" border="1" class="table table-bordered table-striped">
+		<p>OBSERVACIONES</P>
+		<td align="left">{{object.justificacion}}</td>
+		
+		<table width="100%" border="2" class="table table-bordered table-striped">
+		<div style="padding-top:10px;"></div>
+		<p align="center">Una vez Impreso el documento debe ser validado a traves de los timbres de CC. MMTTO y CR. Logistica</p>
+		<tr>
+			<td style="height:200px; width:49%" align="center">Timbre CR. Logistica</td>
+			<td style="height:200px; width:2%"></td>
+			<td style="height:200px; width:49%" align="center">Timbre CC. MMTTO</td>
+		</tr>
+		</table>
+		</table>
+		<div style="padding-top:10px;"></div>
+		</tr>
+	</tbody>
+</table>
+			</th>
+		</tr>
+		</tbody>
+	</table>
+	<div> 
+	<div style="padding-top:50px;"></div>
+	
+</div>
+	</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

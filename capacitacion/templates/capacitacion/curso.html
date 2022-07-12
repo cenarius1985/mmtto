@@ -1,0 +1,130 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Listado{% endblock %}
+{% block breadcrumb %}Cursos de Capacitacion{% endblock %}
+{% block cardtitle %}{% include 'capacitacion/includes/capacitacion_menu.html' %}{% endblock %}
+{% block content %}
+<table>
+  <tr>
+    <th>
+      <div class="col-lg-3 col-6">
+      <div class="card" style="width: 18rem;">
+        <img src="{% static 'capacitacion/img/excel.png' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">EXCEL 2010</h5>
+          <p class="card-text">Todo sobre excel desde basico a profesional</p>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td><a href="{% url 'capacitacion:excel'%}" class="btn btn-outline-success">Curso</a></td>
+                <td><a href="#" class="btn btn-outline-danger">Prueba</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    </th>
+    <th>
+      <div class="col-lg-3 col-6">
+      <div class="card" style="width: 18rem;">
+        <img src="{% static 'capacitacion/img/capsula.jpg' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Capsula Covid</h5>
+          <p class="card-text">Capacitacion de capsula de traslado COVID</p>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td><a href="{% url 'capacitacion:capsula'%}" class="btn btn-outline-success">Curso</a></td>
+                <td><a href="#" class="btn btn-outline-danger">Prueba</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    </th>
+    <th>
+     <div class="col-lg-3 col-6">
+      <div class="card" style="width: 18rem;">
+        <img src="{% static 'capacitacion/img/monitor.jpg' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Monitor EDAN X12</h5>
+          <p class="card-text">Capacitacion de Monitor Multiparametro EDAN X12</p>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td><a href="{% url 'capacitacion:edanx12'%}" class="btn btn-outline-success">Curso</a></td>
+                <td><a href="#" class="btn btn-outline-danger">Prueba</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    </th>
+  </tr>
+  <tr>
+    <th>
+      <div class="col-lg-3 col-6">
+      <div class="card" style="width: 21rem;">
+      <img src="{% static 'capacitacion/img/airvo.jpg' %}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">AIRVO2</h5>
+        <p class="card-text">Capacitacion de equipo AIRVO 2</p>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td><a href="{% url 'capacitacion:airvo2'%}" class="btn btn-outline-success">Curso</a></td>
+              <td><a href="#" class="btn btn-outline-danger">Prueba</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+      </div>
+
+    </th>
+    <th>
+       <div class="col-lg-3 col-6">
+      <div class="card" style="width: 21rem;">
+      <img src="{% static 'capacitacion/img/trilogy.png' %}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Ventilador Mecanico Trilogy EVO</h5>
+        <p class="card-text">Ventilador Mecanico Invasivo</p>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td><a href="{% url 'capacitacion:trilogy'%}" class="btn btn-outline-success">Curso</a></td>
+              <td><a href="#" class="btn btn-outline-danger">Prueba</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+      </div>
+    </th>
+    <th>
+    <div class="col-lg-3 col-6">
+      <div class="card" style="width: 21rem;">
+      <img src="{% static 'capacitacion/img/extintor.jpg' %}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Uso de Extintores</h5>
+        <p class="card-text">Introduccion Extintores IST</p>
+        <table class="table">
+          <tbody>
+            <tr>
+              <td><a href="{% url 'capacitacion:extintores'%}" class="btn btn-outline-success">Curso</a></td>
+              <td><a href="#" class="btn btn-outline-danger">Prueba</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+      </div>    
+    </th>
+    <th></th>
+  </tr>
+</table>
+
+{% endblock %}

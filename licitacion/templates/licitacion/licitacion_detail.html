@@ -1,0 +1,70 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Detalles...{% endblock %}
+{% block breadcrumb %}Detalle de Licitacion{% endblock %}
+{% block cardtitle %}{% include 'licitacion/includes/licitacion_menu.html' %}{% endblock %}
+{% block content %}
+
+<div class="container">
+      <h1 align='center'>{{object.ID_Mercado_Publico|upper}}/{{object.Fecha_Publicacion|date:"d-m-Y"}}</h1>
+			<table width="50%" border="1" class="table table-bordered table-striped">
+				<tbody>
+				<tr>
+					<th scope="row">
+					<table border="1" class="table table-bordered table-striped">
+					<tbody>
+						<tr>
+							<th scope="row">Nombre de Licitacion: </th>
+            				<td align="left">{{object.Nombre}}</td>				
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Detalle de Licitacion </th>
+            				<td align="left">{{object.detalle}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">ID de Mercado Publico</th>
+            				<td align="left">{{object.ID_Mercado_Publico}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Monto Asignado</th>
+            				<td align="left">{{object.Monto}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Fecha de Publicacion</th>
+            				<td align="left">{{object.Fecha_Publicacion}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Fecha de Adjudicacion</th>
+            				<td align="left">{{object.Fecha_Adjudicacion}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Estado de la Licitacion</th>
+            				<td align="left">{{object.estadolicitacion}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Adjudicado</th>
+            				<td align="left">{{object.adjudicado}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Fecha de Termino</th>
+            				<td align="left">{{object.fechatermino}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Observaciones</th>
+            				<td align="left">{{object.observaciones}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Fecha de Creacion </th>
+            				<td align="left">{{object.created}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Fecha de Modificacion</th>
+            				<td align="left">{{object.updated}}</td>
+						</tr>
+					</tbody>
+					</table>
+			  </tr>
+		  </tbody>
+	  </table>
+</div>
+{% endblock %}

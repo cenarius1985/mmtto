@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{% block title %}{% endblock %}</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{% static 'core/plugins/fontawesome-free/css/all.min.css' %}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="{% static 'core/dist/css/adminlte.min.css' %}">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+  
+</head>
+<body class="hold-transition sidebar-mini">
+<!-- Site wrapper -->
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="http://10.5.176.22:81/mmtto/" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="{% url 'contacto' %}" class="nav-link">Contacto</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="/profiles/" class="nav-link">Perfiles</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="/messenger/" class="nav-link">Chat</a>
+      </li>
+       </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="https://mail.minsal.cl/owa/auth/logon.aspx?replaceCurrent=1&url=https%3a%2f%2fmail.minsal.cl%2fowa%2f" class="nav-link">WebMail</a>
+      </li>
+    </ul>
+
+    <!-- SEARCH FORM -->
+    <form class="form-inline ml-3">
+      <div class="input-group input-group-sm">
+        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-navbar" type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      
+ <!-- Menu de Ingreso-->
+      <li class="nav-item dropdown">
+         <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    {% if user.is_authenticated %}
+                                        <img src="{% static 'core/img/SSVSA.png' size=50 %}" class="user-image" alt="User Image">
+                                    {% else %}
+                                        <img src="{% static 'core/img/SSVSA.png' size=50 %}" class="user-image" alt="User Image">
+                                    {% endif %}
+
+                                <span class="hidden-xs">{% firstof request.user.get_short_name request.user.get_username %}</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="user-header">
+                                    <img src="{% static 'core/img/SSVSA.png' size=50 %}" class="img-circle" alt="User Image">
+                                    <p>
+                                        {% firstof request.user.get_short_name request.user.get_username %}
+                                        <small>Miembro desde el {{ request.user.date_joined }}</small>
+                                    </p>
+                                </li>
+
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="#"
+                                           class="#"</a>
+                                    </div>
+                                    <div class="pull-right">
+                                    <table style="margin: 0 auto;">
+                                        <td> <a href="{% url 'logout' %}" class="btn btn-danger">Salir</a> </td>
+                                        <td width='50px'>  </td>
+                                        <td> <a href="{% url 'login' %}" class="btn btn-primary">Ingresar</a> </td>
+                                    </table>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+            </ul>
+        </div> 
+      </li>
+    <!-- Fin Menu de Ingreso-->
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="http://10.5.176.22:81/mmtto/" class="brand-link">
+      <img src="{% static 'core/dist/img/AdminLTELogo.png' %}"
+           alt="AdminLTE Logo"
+           class="brand-image img-circle elevation-3"
+           style="opacity: .8">
+      <span class="brand-text font-weight-light"><b>MMTTO&SSGG</b></span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          {% if user.is_authenticated %}
+          <img src="{% static 'core/img/SSVSA.png' size=50 %}" class="img-circle elevation-2" alt="User Image">
+          {% else %}
+          <img src="{% static 'core/img/SSVSA.png' size=50 %}" class="img-circle elevation-2" alt="User Image">
+          {% endif %}
+        </div>
+        <div class="info">
+          <a href="/accounts/profile/" class="d-block">{% firstof request.user.get_short_name request.user.get_username %}</a>
+        </div>
+      </div>
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                TABLERO
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'graficoroperia' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>ROPERIA</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'gantt:iniciogantt' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>GANTT MMTTO</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>SSGG</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                ADMINISTRACION
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'pages:pages' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>BLOG</p>
+                </a>
+              </li>
+               <li class="nav-item">
+                <a href="{% url 'solicitudestalleresabas:solicitudestalleresabas' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>ESTADO DE PAGO</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'control:control' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>CONTROL DOCUMENTOS</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'hhee:hhee' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>HHEE</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'rrhh:rrhh' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>RRHH</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'licitacion:licitacion' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>LICITACIONES</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'bases:bases' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>BASES TECNICAS</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'proyectos:proyectos' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>PROYECTOS</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'capacitacion:cursotemplate' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>CAPACITACION</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="https://www.trello.com" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>TROLL</p>
+                </a>
+              </li>
+            </ul>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-clipboard-list"></i>
+              <p>
+                INVENTARIO
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'inventario' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>EQUIPOS MEDICOS</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'infraestructura:infraestructura' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>INFRAESTRUCTURA</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'cartolas:moviles' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>PARQUE AUTOMOTRIZ</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'clima:clima' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>EQUIPOS DE CLIMA</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'industriales:industriales' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>EQUIPOS INDUSTRIALES</p>
+                </a>
+              </li>
+            </ul>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fab fa-empire"></i>
+              <p>
+                MMTTO
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'monitores:monitores' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>MMTTO 1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'externolistview' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>MMTTO 2</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'covid:covid' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>MMTTO COVID</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'justificacion:justificacion' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>JUSTIFICACION</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'manuales:manuales' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>MANUALES</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'informes:informes' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>INFORMES EQ2.2-EQ1.1</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'costos:costos' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Control de Costos</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'ordenestalleres:ordenestalleres' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ordenes de Trabajo</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'actas:actas' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Actas Equipos</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'pautas:pautas' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Pautas</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-bus-alt"></i>
+              <p>
+                P. AUTOMOTRIZ
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'cartolas:cartolas' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>CARTOLAS</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="http://10.5.173.222/chequeo" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>CHEQUEO</p>
+                </a>
+              <li class="nav-item">
+                <a href="{% url 'ambulancias:listaambulancia' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>MMTTO PREVENTIVO</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'colisiones:colisiones' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>COLISIONES</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'otautomotriz:otautomotriz' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Orden de Trabajo</p>
+                </a>
+              </li>
+              
+            </ul>
+          </li>
+
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+                SSGG
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'comunes:comunes' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Factura Gastos Comunes</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'proveedores:proveedores' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Factura Proveedores</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'ordenes:ordenes' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ordenes de Trabajo</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'solicitudes:solicitudes' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Solicitudes Abastecimiento</p>
+                </a>
+              </li>
+            </ul>
+                <li class="nav-item has-treeview">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-tree"></i>
+                  <p>
+                    ROPERIA
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{% url 'ropaexterno:ropaexterno'%}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Despacho Diario</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'roperiaconfeccion:roperiaconfeccion'%}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Boleta Confeccion</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'kilosservicio:kilosservicio'%}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Kilos por Servicio</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'facturaroperia:facturaroperia'%}" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Facturas</p>
+                    </a>
+                  </li>
+              </ul>
+                 <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                P. RIESGO
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'prevencion:prevencion' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Informes Inspección</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'guia:guia' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Guias & Facturas</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'ambiente:ambiente' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>M. Ambiente</p>
+                </a>
+           </li>
+            </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>{% block breadcrumb %} {% endblock %}</h1>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Default box -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">{% block cardtitle %} {% endblock %}</h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+              <i class="fas fa-minus"></i></button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+              <i class="fas fa-times"></i></button>
+          </div>
+        </div>
+        <div class="card-body">
+          <!-- Contendo de la pagina-->                     
+                    {% block content %}{% endblock %}
+
+          <!-- fin contenido de la pagina-->
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+          MMTTO&SSGG
+        </div>
+        <!-- /.card-footer-->
+      </div>
+      <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 1.12
+    </div>
+    <strong>Inventory</strong>
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="{% static 'core/plugins/jquery/jquery.min.js' %}"></script>
+<!-- Bootstrap 4 -->
+<script src="{% static 'core/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static 'core/dist/js/adminlte.min.js' %}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{% static 'core/dist/js/demo.js' %}"></script>
+<!-- Grafico Roperia -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="{% static 'graficos/roperia.js' %}"></script>
+
+</body>
+</html>

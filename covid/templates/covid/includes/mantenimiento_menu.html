@@ -1,0 +1,18 @@
+
+<!-- Navbar -->
+{% load static %}
+
+{% if request.user.is_staff %}
+<!-- Navbar (sit on top) -->
+      
+<table class="table table-bordered table-striped">
+  <ul class="nav navbar-nav">
+     <td><a class="glyphicon glyphicon-home" href="{% url 'covid:covid' %}"><i class='fas fa-house-damage' style='font-size:20px;color:red'></i></a></td>
+     <td><a class="glyphicon glyphicon-plus" href="{% url 'covidexcel' %}"><i class='fas fa-arrow-alt-circle-down' style='font-size:20px;color:red'></i></a></td>
+     <td><a class="glyphicon glyphicon-plus" href="{% url 'pautas:pautas' %}"><i class='fas fa-book-open' style='font-size:20px;color:red'></i></a></td>
+      <td><a class="glyphicon glyphicon-plus" href="{% url 'covid:covidventiladorcreate' %}"><i class="fas fa-atom" style='font-size:20px;color:red'></i></a></td>
+      <td><a class="glyphicon glyphicon-plus" href="{% url 'covid:covidmonitorcreate' %}"><i class='fas fa-apple-alt' style='font-size:20px;color:red'></i></a></td>
+  </ul>
+</table>
+
+{% endif %}

@@ -1,0 +1,88 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Detalles...{% endblock %}
+{% block breadcrumb %}Detalle de Factura{% endblock %}
+{% block cardtitle %}{% include 'costos/includes/costos_menu.html' %}{% endblock %}
+{% block content %}
+
+<div class="container">
+      <h1 align='center'>{{object.proveedor|upper}}/{{object.numerofactura|upper}}</h1>
+			<table width="50%" border="1" class="table table-bordered table-striped">
+				<tbody>
+				<tr>
+					<th scope="row">
+					<table border="1" class="table table-bordered table-striped">
+					<tbody>
+						<tr>
+							<th scope="row">Fecha de Recepcion</th>
+            				<td align="left">{{object.fecha}}</td>				
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Fecha Emision</th>
+            				<td align="left">{{object.fechae}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Nombre del Proveedor</th>
+            				<td align="left">{{object.proveedor}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Detalle</th>
+            				<td align="left">{{object.detalle}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Critico/Relevante</th>
+            				<td align="left">{{object.criticorelevante}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Servicio que Solicita</th>
+            				<td align="left">{{object.serviciosolicita}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Numero de Factura</th>
+            				<td align="left">{{object.numerofactura}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Tipo de Convenio</th>
+            				<td align="left">{{object.convenio}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">N° Licitacion</th>
+            				<td align="left">{{object.numerolicitacion}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">N° OC</th>
+            				<td align="left">{{object.numeroordencompra}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Monto</th>
+            				<td align="left">{{object.monto}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Observaciones</th>
+           					<td align="left">{{object.observaciones}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Tipo MMTTO</th>
+            				<td align="left">{{object.mantenimiento}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Fecha de Creacion </th>
+            				<td align="left">{{object.created}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Fecha de Modificacion</th>
+            				<td align="left">{{object.updated}}</td>
+						</tr>
+						<tr>
+							{% if object.Adjuntar_Archivo %}
+							<th scope="row">Documento</th>
+							<td ><a href="{{ object.Adjuntar_Archivo.url }}">Descargar</a></td>
+							{% endif %}
+                		</tr>
+					</tbody>
+					</table>
+			  </tr>
+		  </tbody>
+	  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Pautas..{% endblock %}
+{% block breadcrumb %}Pautas De Mantenimiento{% endblock %}
+{% block content %}
+<div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Pautas de Equipos Relevantes</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Equipo</th>
+                  <th>Fecha de Creacion</th>
+                  <th>Critico/Relevante</th>
+                  <th>Pauta</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>MP Equipos Relevantes</td>
+                  <td>11-11-2019</td>
+                  <td>Relevante</td>
+                  <td><a href="{% url 'pautas:generalcreate' %}" class="nav-link"><i class='fas fa-book-open' style='font-size:25px;color:red'></i></a></td>
+                </tr>
+                 <tr>
+                  <td>Baja de Equipos</td>
+                  <td>19-11-2019</td>
+                  <td>Critico</td>
+                  <td><a href="{% url 'pautas:bajacreate' %}" class="nav-link"><i class='fas fa-book-open' style='font-size:25px;color:red'></i></a></td>
+                </tr>
+                <tr>
+                  <td>Fuera de Servicio</td>
+                  <td>19-11-2019</td>
+                  <td>Critico</td>
+                  <td><a href="{% url 'pautas:fueracreate' %}" class="nav-link"><i class='fas fa-book-open' style='font-size:25px;color:red'></i></a></td>
+                </tr>
+                <tr>
+                  <td>Reingreso de Equipos</td>
+                  <td>19-11-2019</td>
+                  <td>Critico</td>
+                  <td><a href="{% url 'pautas:reingresocreate' %}" class="nav-link"><i class='fas fa-book-open' style='font-size:25px;color:red'></i></a></td>
+                </tr>
+                <tr>
+                  <td>Alta de Equipos en Arriendo y COMODATO</td>
+                  <td>26-11-2019</td>
+                  <td>Critico</td>
+                  <td><a href="{% url 'pautas:comodatocreate' %}" class="nav-link"><i class='fas fa-book-open' style='font-size:25px;color:red'></i></a></td>
+                </tr>
+                <tr>
+                  <td>Alta de Equipos</td>
+                  <td>19-11-2019</td>
+                  <td>Critico</td>
+                  <td><a href="{% url 'pautas:altacreate' %}" class="nav-link"><i class='fas fa-book-open' style='font-size:25px;color:red'></i></a></td>
+                </tr>
+                
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+{% endblock %}

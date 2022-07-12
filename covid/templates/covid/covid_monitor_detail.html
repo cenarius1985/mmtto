@@ -1,0 +1,136 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+<div class="container">
+    <div style="text-align:center">
+	   <td><img src="{% static 'core/img/logo4.png' %}" width="30%" height="7%" align="center"></td>
+       <h1>PAUTA DE MANTENIMIENTO PREVENTIVO EQUIPOS CRITICOS</h1>
+	   <h1>MONITORIZACION HEMODINAMICA COVID-19</h1>
+	   <p>Hospital Claudio Vicuña</p>
+		<label for="date">{{object.fecha}}</label>
+		
+	</div>
+	<div class="container">
+		<div class="row text-center">
+			<table width="90%" border="2" class="table table-bordered table-striped">
+			<tbody>
+			<th scope="row"><p>Servicio</p></th>
+				<td><p>	
+					{{object.servicio}}
+				</p></td>
+					<th scope="row"><p>N Inventario</p></th>
+					<td>
+					{{object.inventario}}
+					</td>
+				<tr>
+					<th scope="row"><p>Equipo</p>
+					</th>
+					<td>{{object.nombre}}				</td>
+					<th scope="row"><p>Marca</p>
+					</th>
+					<td>{{object.marca}}
+					</td>             
+				</tr>
+				<tr>
+				<th scope="row"><p>Modelo</p></th>
+				<td>{{object.modelo}}</td>
+					<th scope="row"><p>N° Serie</p></th>
+				<td>{{object.serie}}</td>
+				</tr>
+			</tbody>
+			</table>
+
+			<table width="90%" border="1" class="table table-bordered table-striped">
+			<tbody>
+						<tr>
+						<th scope="row" width="50%"><p>Chasis esta Limpio</p></th>
+						<td>{{object.pauta1}}</td>
+						<th scope="row"><p>Chasis sin objetos encima</p></th>
+						<td> {{object.pauta2}} </td>
+						</tr>
+
+						<tr>
+						<th scope="row"><p>Chasis sin daño en carcasa</p></th>
+						<td> {{object.pauta3}}  </td>
+						<th scope="row"><p>Panel de Control sin Mancha</p></th>
+						<td>{{object.pauta4}} </td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Panel de Control sin Trizadura</p></th>
+						<td>{{object.pauta5}}</td>
+						<th scope="row"><p>Interruptores no se encuentra sueltos</p></th>
+						<td>{{object.pauta6}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Interuptores no se ecuentras trizados</p></th>
+						<td>{{object.pauta7}}</td>
+						<th scope="row"><p>Pantalla sin mancha</p></th>
+						<td>{{object.pauta8}}</td>
+						<tr>
+						<th scope="row"><p>Pantalla sin trizadura</p></th>
+						<td>{{object.pauta9}}</td>
+						<th scope="row"><p>Realizar Inspeccion de ComponentesComponentes Cable de Poder</p></th>
+						<td>{{object.pauta10}}</td>
+						<tr>
+						<th scope="row"><p>Realizar Inspeccion de ComponentesComponentes Cable SPO2</p></th>
+						<td>{{object.pauta11}}</td>
+						<th scope="row"><p>Realizar Inspeccion de ComponentesComponentes Cable ECG</p></th>
+						<td>{{object.pauta12}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Realizar Inspeccion de ComponentesComponentes Manguera PANI</p></th>
+						<td>{{object.pauta13}}</td>
+						<th scope="row"><p>Realizar Inspeccion de ComponentesComponentes Manguito PANI</p></th>
+						<td>{{object.pauta14}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Sistema Operativo</p></th>
+						<td>{{object.pauta15}}</td>
+						</tr>
+					</tbody>
+					</table>
+
+		</div>	
+		<div class="row">
+				<table width="100%" border="2" class="table table-bordered table-striped">
+					<tbody>
+						<div style="padding-top:10px; text-align:center;">
+							<p>OBSERVACIONES Y DETALLES</p>
+						</div>
+						<tr>
+							<td>{{object.justificacion}}</td>
+						</tr>
+					</tbody>
+				</table>
+				<div style="padding-top:10px; text-align:center">
+			      <p>IDENTIFICACION DEL PERSONAL RESPONSABLE DEL MANTENIMIENTO PREVENTIVO</p>
+            	</div>
+				<table width="100%" border="2" class="table table-bordered table-striped">
+    <tbody>
+    <tr>
+        <th width="10%" scope="row"></th>
+        <td width="30%" ><p>Nombre</p></td>
+		<td width="20%"><p>RUT</p></td>
+        <td width="20%"><p>Firma</p></td>
+        <td width="40%"><p>Timbre</p></td>
+    </tr>
+        <tr>
+                <th scope="row"><p>Tecnico 1</p></th>
+                <td>Oscar Gonzalez</td>
+			 	<td>8.766.170-9</td>
+                <td><img src="{% static 'core/img/firma1.jpg' %}" ></td>
+                <td><img src="{% static 'core/img/timbre1.jpg' %}" ></td>
+    </tr>
+    <tr>
+                <th scope="row"><p>Responsable</p></th>
+                <td>Fernando Ramírez</td>
+			 	<td>15.873.053-7</td>
+                <td><img src="{% static 'core/img/firma2.jpg' %}"  align="center"></td>
+                <td><img src="{% static 'core/img/timbre2.jpg' %}" align="center"></td>
+    </tr>
+    </tbody>
+</table>
+
+			</div>
+{% endblock %}

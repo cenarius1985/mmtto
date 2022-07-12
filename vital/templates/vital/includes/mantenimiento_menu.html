@@ -1,0 +1,41 @@
+{% load static %}
+{% if request.user.is_staff %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <span ><a class="nav-link" href="{% url 'monitores:monitores' %}">Mantenimientos<span class="sr-only">(current)</span></a></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nep" aria-controls="nep" aria-expanded="false">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nep">
+      <ul class="navbar-nav mr-auto">
+       
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'oximetros:create_oximetro' %}">Oximetro de Pulso<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'monitores:create1' %}">M.Multiparametro</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'monitores:create1' %}">M.Signos Vitales</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'anestesias:create_anestesia' %}">M.Anestesia</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'ambulancias:create_ambulancia' %}">Ambulancias</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'ventiladores:create_ventilador' %}">Ventilador M.</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'desfibriladores:create_desfibrilador' %}">Desfibrilador</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'incubadoras:create_incubadora' %}">Incubadora</a>
+        </li>
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+{% endif %}

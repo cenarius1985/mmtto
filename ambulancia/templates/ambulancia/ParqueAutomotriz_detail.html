@@ -1,0 +1,201 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Inicio{% endblock %}
+{% block cardtitle %}{% include 'ambulancia/includes/ParqueAutomotriz_menu.html' %}{% endblock %}
+{% block content %}
+
+<div class="container">
+<form method="post">{% csrf_token %}
+    <div style="padding-top:20px; text-align:center;">
+       <h1>PAUTA DE MANTENIMIENTO PREVENTIVO</h1>
+       <p>PARQUE AUTOMOTRIZ</p>
+       <p>AMBULANCIAS MERCEDES BENZ</p>
+		<label for="date">{{object.fecha}}</label>
+	</div>
+	
+<div class="container" >
+		<div class="row text-center">
+			<table width="90%" border="2" class="table table-bordered table-striped">
+			<tbody>
+			<th scope="row"><p>Servicio</p></th>
+				<td><p>	
+					{{object.Servicio}}
+				</p></td>
+					<th scope="row"><p>KM Programado</p></th>
+					<td>
+					{{object.km_programado}}
+					</td>
+				<tr>
+					<th scope="row"><p>Patente</p>
+					</th>
+					<td>{{object.Patente}}				</td>
+					<th scope="row"><p>KM Realizado</p>
+					</th>
+					<td>{{object.km_real}}
+					</td>             
+				</tr>
+				<tr>
+				<th scope="row"><p>Modelo</p></th>
+				<td>{{object.modelo}}</td>
+					<th scope="row"><p>Proximo KM Programado</p></th>
+				<td>{{object.proximo_cambio}}</td>
+				</tr>
+				<tr>
+				<th scope="row"><p>N° Inventario</p></th>
+				<td>{{object.inventario}}</td>
+					<th scope="row"><p>KM Anterior</p></th>
+				<td>{{object.km_anterior}}</td>
+				</tr>
+				<div style="padding-top:20px; text-align:center;"></div>
+			</tbody>
+			</table>
+		</div>	
+
+
+		<div style="padding-top:20px; text-align:center;">
+				
+		</div>	
+
+		<div class="row">
+			<table width="90%" border="1" class="table table-bordered table-striped">
+				<tbody>
+				<tr>
+					<th scope="row">
+					<table width="100%" border="1" class="table table-bordered table-striped">
+					<tbody>
+						<tr>
+						<th scope="row" width="90%"><p>Cambio de Aceite de Motor</p></th>
+						<td>{{object.pauta1}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Cambio de Filtro de Aceite</p></th>
+						<td> {{object.pauta2}} </td>
+						
+						</tr>
+						<tr>
+						<th scope="row"><p>Cambio de Filtros de Aire Motor</p></th>
+						<td> {{object.pauta3}}  </td>
+						
+						</tr>
+						<tr>
+						<th scope="row"><p>Cambio de Filtro de Polen.</p></th>
+						<td>{{object.pauta4}} </td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Cambio de Filtro de Petróleo </p></th>
+						<td>{{object.pauta5}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Cambio de Filtro de Petróleo R.</p></th>
+						<td>{{object.pauta6}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Revisión de Niveles</p></th>
+						<td>{{object.pauta7}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Revisión de Pastillas de Freno</p></th>
+						<td>{{object.pauta8}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Revisión de Aceite de Caja</p></th>
+						<td>{{object.pauta9}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Revisión de Aceite de Motor.</p></th>
+						<td> {{object.pauta10}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Revisión de Frenos </p></th>
+						<td>{{object.pauta11}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Revisión de Frenos de Seguridad</p></th>
+						<td>{{object.pauta12}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Revisión de Cinturones de Seguridad</p></th>
+						<td>{{object.pauta13}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Revisión de Luces Internas</p></th>
+						<td>{{object.pauta14}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Revisión de Tren Delantero</p></th>
+						<td>{{object.pauta15}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Revisión de Tren Trasero</p></th>
+						<td>{{object.pauta16}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Revisión de Correas</p></th>
+						<td>{{object.pauta17}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Movil Operativo</p></th>
+						<td>{{object.pauta18}}</td>
+						</tr>
+					</tbody>
+					</table>
+						<div style="padding-top:10px; text-align:center;">
+			      <p>IDENTIFICACION DE PERSONAL CALIFICADO</p>
+            </div>
+			<table width="100%" border="2" class="table table-bordered table-striped">
+				<tbody>
+				<tr>
+					<th width="10%" scope="row"></th>
+					<td width="40%" ><p>Nombre</p></td>
+					<td width="20%"><p>Firma</p></td>
+					<td width="20%"><p>Timbre</p></td>
+				</tr>
+				<tr>
+                <th scope="row"><p>Tecnico</p></th>
+                <td>{{object.tecnico1}}</td>
+                <td><img src="{% static 'core/img/cruciani2.jpg' %}" width="100%" height="7%" align="center"></td>
+                <th scope="row" align="center"><p>CRUCIANI Y COMPAÑIA LTDA.</p></th>
+    		</tr>
+				<tr>
+                <th scope="row"><p>Responsable de MMTTO</p></th>
+                <td>{{object.responsable}}</td>
+                <td><img src="{% static 'core/img/firma2.jpg' %}" width="100%" height="7%" align="center"></td>
+                <td><img src="{% static 'core/img/timbre2.jpg' %}" width="70%" height="8%" align="center"></td>
+    			</tr>
+				</tbody>
+			</table>
+					<table width="100%" border="2" class="table table-bordered table-striped">
+						<tbody>
+							<tr>
+							<table width="100%" border="1" class="table table-bordered table-striped">
+							<p>OBSERVACIONES</P>
+							<td align="left">{{object.observacion}}</td>
+							
+							<table width="100%" border="2" class="table table-bordered table-striped">
+							<div style="padding-top:10px;"></div>
+							<p align="center">Una vez Impreso el documento debe ser validado a traves de los timbres de CC. MMTTO y CR. Logistica</p>
+							<tr>
+								<td style="height:200px; width:49%" align="center">Timbre CR. Logistica</td>
+								<td style="height:200px; width:2%"></td>
+								<td style="height:200px; width:49%" align="center">Timbre CC. MMTTO</td>
+							</tr>
+							</table>
+							</table>
+							<div style="padding-top:10px;"></div>
+							</tr>
+						</tbody>
+					</table>
+								</th>
+							</tr>
+							</tbody>
+						</table>
+						<div> 
+						<div style="padding-top:50px;"></div>
+						
+					</div>
+						</div>
+				</div>
+			  </div>
+			  </div>
+			</div>
+			{% endblock %}

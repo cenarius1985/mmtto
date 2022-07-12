@@ -1,0 +1,70 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Licitaciones{% endblock %}
+{% block breadcrumb %}Listado de Licitaciones{% endblock %}
+{% block cardtitle %}{% include 'licitacion/includes/licitacion_menu.html' %}{% endblock %}
+{% block content %}
+
+<div class="card">
+            <div class="card-header">
+              <table style="margin: 0 auto;">
+                    <form action="{% url 'licitacion:filtrolicitacion' %}" method="GET"> {% csrf_token %}
+                      <td class="active"><input type="text" name="buscar" class="form-control"></td>
+                      <td class="active"><input type="submit" value="BUSCAR" class="btn btn-success"></td>
+                    </form>
+              </table>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th><i class='fas fa-cog' style='font-size:20px;color:black'></i></th>
+                    {% if request.user.is_staff %}
+                  <th><i class='fas fa-arrow-alt-circle-down' style='font-size:20px;color:black'></i></th>
+                  <th><i class="fa fa-trash" style="font-size:20px"></i></th>
+                  {% endif %}
+                  <th>ID</th>
+                  <th>Nombre</th>
+                  <th>ID Mercado Publico</th>
+                  <th>Monto</th>
+                  <th>Fecha de Adjudicacion</th>
+                  <th>Estado</th>
+                  <th>Adjudicado</th>
+                  <th>Fecha Termino</th>
+                  
+                </tr>
+                </thead>
+                {% for article in object_list|dictsort:"id" reversed %}
+                <tbody>
+                <tr>
+
+                  <td class="active"><a href="{% url 'licitacion:detaillicitacion' article.id %}"><i class='fas fa-cog' style='font-size:20px;color:green'></i></a></td>
+                  {% if request.user.is_staff %}
+                  <td class="active"><a href="{% url 'licitacion:updatelicitacion' article.id %}"><i class='fab fa-adn' style='font-size:20px;color:green'></i></a></td>
+                  <td class="active"><a href="{% url 'licitacion:deletelicitacion' article.id %}"><i class="fa fa-trash" style="font-size:20px;color:red"></i></a></td>
+                  {% endif %}
+                  <td class="active">{{article.id}}</td>
+                  <td class="success">{{article.Nombre}}</td>
+                  <td class="active">{{article.ID_Mercado_Publico}}</td>
+                  <td class="active">{{article.Monto}}</td>
+                  <td class="active">{{article.Fecha_Adjudicacion|date:"d-m-Y"}}</td>
+                  <td class="active">{{article.estadolicitacion}}</td>
+                  <td class="active">{{article.adjudicado}}</td>
+                  <td class="active">{{article.fechatermino|date:"d-m-Y"}}</td>
+
+                </tr>
+                {% empty %}
+                        <li>No articles yet.</li>
+                {% endfor %}
+                </tbody>
+                </tfoot>
+              </table>
+<!-- #############################Paginacion################################### -->
+          {% include 'core/includes/paginacion.html' %}   
+<!-- #############################Termino de paginacion################################### -->
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+{% endblock %}

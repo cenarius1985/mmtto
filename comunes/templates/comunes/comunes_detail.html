@@ -1,0 +1,78 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Detalles...{% endblock %}
+{% block breadcrumb %}Detalle de Gasto Comun{% endblock %}
+{% block cardtitle %}{% include 'comunes/includes/comunes_menu.html' %}{% endblock %}
+{% block content %}
+
+<div class="container">
+      <h1 align='center'>{{object.numerofactura|upper}}/{{object.agualuz|upper}}</h1>
+			<table width="50%" border="1" class="table table-bordered table-striped">
+				<tbody>
+				<tr>
+					<th scope="row">
+					<table border="1" class="table table-bordered table-striped">
+					<tbody>
+						<tr>
+							<th scope="row">N° Factura: </th>
+            				<td align="left">{{object.numerofactura}}</td>				
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Fecha: </th>
+            				<td align="left">{{object.fecha}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">1° Lectura</th>
+            				<td align="left">{{object.primerperiodo}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">2° Lectura</th>
+            				<td align="left">{{object.segundoperiodo}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Fecha Emision</th>
+            				<td align="left">{{object.fechaemision}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Consumo(Watts/M3)</th>
+            				<td align="left">{{object.watts}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Total($)</th>
+            				<td align="left">{{object.total}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Sector</th>
+            				<td align="left">{{object.sector}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Direccion</th>
+            				<td align="left">{{object.direccion}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">N° Medidor</th>
+            				<td align="left">{{object.numeromedidor}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">N° Cliente</th>
+            				<td align="left">{{object.numerocliente}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Observaciones</th>
+           					<td align="left">{{object.observaciones}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Fecha de Creacion </th>
+            				<td align="left">{{object.created}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Fecha de Modificacion</th>
+            				<td align="left">{{object.updated}}</td>
+						</tr>
+					</tbody>
+					</table>
+			  </tr>
+		  </tbody>
+	  </table>
+</div>
+{% endblock %}

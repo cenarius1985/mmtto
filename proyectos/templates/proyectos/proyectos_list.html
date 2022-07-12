@@ -1,0 +1,66 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Facturas{% endblock %}
+{% block breadcrumb %}FACTURAS DE GASTOS COMUNES{% endblock %}
+{% block cardtitle %}{% include 'proyectos/includes/proyectos_menu.html' %}{% endblock %}
+{% block content %}
+
+<div class="card">
+            <div class="card-header">
+              <table style="margin: 0 auto;">
+                    <form action="{% url 'proyectos:filtroproyectos' %}" method="GET"> {% csrf_token %}
+                      <td class="active"><input type="text" name="buscar" class="form-control"></td>
+                      <td class="active"><input type="submit" value="BUSCAR" class="btn btn-success"></td>
+                    </form>
+              </table>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th><i class='fas fa-cog' style='font-size:20px;color:black'></i></th>
+                  {% if request.user.is_staff %}
+                  <th><i class='fas fa-arrow-alt-circle-down' style='font-size:20px;color:black'></i></th>
+                  <th><i class="fa fa-trash" style="font-size:20px"></i></th>
+                  {% endif %}
+                  <th>ID</th>
+                  <th>Fecha</th>
+                  <th>Nombre</th>
+                  <th>Fecha Autorizacion (SDA)</th>
+                  <th>Fecha de Inicio</th>
+                  <th>Fecha de Termino</th>
+                  <th>Duracion Estimada</th>
+                </tr>
+                </thead>
+                {% for article in object_list|dictsort:"id" reversed %}
+                <tbody>
+                <tr>
+                   
+                  <td class="active"><a href="{% url 'proyectos:detailproyectos' article.id %}"><i class='fas fa-cog' style='font-size:20px;color:green'></i></a></td>
+                  {% if request.user.is_staff %}
+                  <td class="active"><a href="{% url 'proyectos:updateproyectos' article.id %}"><i class='fab fa-adn' style='font-size:20px;color:green'></i></a></td>
+                  <td class="active"><a href="{% url 'proyectos:deleteproyectos' article.id %}"><i class="fa fa-trash" style="font-size:20px;color:red"></i></a></td>
+                  {% endif %}
+                  <td class="active">{{article.id}}</td>
+                  <td class="active">{{article.fecha|date:"d-m-Y"}}</td>
+                  <td class="active">{{article.nombre}}</td>
+                  <td class="active">{{article.fechaa|date:"d-m-Y"}}</td>
+                  <td class="active">{{article.fechai|date:"d-m-Y"}}</td>
+                  <td class="active">{{article.fechat|date:"d-m-Y"}}</td>
+                  <td class="active">{{article.duracion}}</td>    
+                </tr>
+                {% empty %}
+                        <li>No articles yet.</li>
+                {% endfor %}
+                </tbody>
+                </tfoot>
+              </table>
+<!-- #############################Paginacion################################### -->
+          {% include 'core/includes/paginacion.html' %}   
+<!-- #############################Termino de paginacion################################### -->
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+{% endblock %}

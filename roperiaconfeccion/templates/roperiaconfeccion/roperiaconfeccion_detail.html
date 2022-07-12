@@ -1,0 +1,59 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Detalles...{% endblock %}
+{% block breadcrumb %}Detalle de Boleta Corte y Confeccion{% endblock %}
+{% block cardtitle %}{% include 'roperiaconfeccion/includes/roperiaconfeccion_menu.html' %}{% endblock %}
+{% block content %}
+
+<div class="container">
+      <h1 align='center'>{{object.Nombre_Empresa|upper}}/{{object.OC|upper}}</h1>
+			<table width="50%" border="1" class="table table-bordered table-striped">
+				<tbody>
+				<tr>
+					<th scope="row">
+					<table border="1" class="table table-bordered table-striped">
+					<tbody>
+    
+						<tr>
+							<th scope="row">Fecha Orden Compra </th>
+            				<td align="left">{{object.Fecha_OC}}</td>				
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Numero Boleta</th>
+            				<td align="left">{{object.Numero_Boleta}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">RUT</th>
+            				<td align="left">{{object.RUT}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Nombre de Empresa</th>
+            				<td align="left">{{object.Nombre_Empresa}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Descripcion del Servicio</th>
+            				<td align="left">{{object.Detalle}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Valor</th>
+            				<td align="left">{{object.Valor}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">N° de OC</th>
+            				<td align="left">{{object.OC}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Fecha de Creacion </th>
+            				<td align="left">{{object.created}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Fecha de Modificacion</th>
+            				<td align="left">{{object.updated}}</td>
+						</tr>
+					</tbody>
+					</table>
+			  </tr>
+		  </tbody>
+	  </table>
+</div>
+{% endblock %}

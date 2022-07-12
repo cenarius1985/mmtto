@@ -1,0 +1,70 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Pautas..{% endblock %}
+{% block breadcrumb %}Pautas De Mantenimiento{% endblock %}
+{% block content %}
+<div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Pautas de Mantenimiento Preventivo de Infraestructura</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>Equipo</th>
+                  <th>Fecha de Creacion</th>
+                  <th>Critico/Relevante</th>
+                  <th>Pauta</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>Estanque de Agua</td>
+                  <td>06-11-2019</td>
+                  <td>Relevante</td>
+                  <td><a href="{% url 'pautas:estanqueaguacreate' %}" class="nav-link"><i class='fas fa-book-open' style='font-size:25px;color:red'></i></a></td>
+                </tr>
+                <tr>
+                  <td>Calefaccion Centralizada</td>
+                  <td>06-11-2019</td>
+                  <td>Relevante</td>
+                  <td><a href="{% url 'pautas:calefaccioncreate' %}" class="nav-link"><i class='fas fa-book-open' style='font-size:25px;color:red'></i></a></td>
+                </tr>
+                <tr>
+                  <td>Techumbre</td>
+                  <td>06-11-2019</td>
+                  <td>Relevante</td>
+                  <td><a href="{% url 'pautas:techumbrecreate' %}" class="nav-link"><i class='fas fa-book-open' style='font-size:25px;color:red'></i></a></td>
+                </tr>
+                <tr>
+                  <td>Sistema de Aspiracion Centralizado</td>
+                  <td>06-11-2019</td>
+                  <td>Relevante</td>
+                  <td><a href="{% url 'pautas:aspiracioncreate' %}" class="nav-link"><i class='fas fa-book-open' style='font-size:25px;color:red'></i></a></td>
+                </tr>
+                <tr>
+                  <td>Sistema de Gases Centralizado</td>
+                  <td>06-11-2019</td>
+                  <td>Relevante</td>
+                  <td><a href="{% url 'pautas:gasescreate' %}" class="nav-link"><i class='fas fa-book-open' style='font-size:25px;color:red'></i></a></td>
+                  <tr>
+                  <td>Sistema de Transporte Vertical</td>
+                  <td>11-11-2019</td>
+                  <td>Relevante</td>
+                  <td><a href="{% url 'pautas:montacargacreate' %}" class="nav-link"><i class='fas fa-book-open' style='font-size:25px;color:red'></i></a></td>
+                  </tr>
+                  <tr>
+                  <td>Sistema de Iluminacion</td>
+                  <td>11-11-2019</td>
+                  <td>Relevante</td>
+                  <td><a href="{% url 'pautas:iluminacioncreate' %}" class="nav-link"><i class='fas fa-book-open' style='font-size:25px;color:red'></i></a></td>
+                  </tr>
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+{% endblock %}

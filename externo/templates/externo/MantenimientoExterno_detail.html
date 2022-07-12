@@ -1,0 +1,102 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Inicio{% endblock %}
+{% block cardtitle %}{% include 'externo/includes/externo_menu.html' %}{% endblock %}
+{% block content %}
+<div class="container">
+  <div style="padding-top:20px; text-align:center;">
+    <h1>{{object.Nombre_Equipo|upper}}</h1>
+  <div class="container">
+      <font color="Olive" face="verdana">
+       <div class="row text-center">
+         <table width="100%" border="2">
+           <tbody>
+            <table width="100%" border="1" align="center" class="table table-bordered table-striped">
+              <tbody align="left">
+                <tr>
+                  <th scope="row">Fecha</th>
+                  <td align="left">{{object.Fecha}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Unidad</th>
+                  <td align="left">{{object.Unidad}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Nombre del Equipo</th>
+                  <td align="left">{{object.Nombre_Equipo}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Marca Del Equipo</th>
+                  <td align="left">{{object.Marca}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Modelo del Equipo</th>
+                  <td align="left">{{object.Modelo_Equipo}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Serie</th>
+                  <td align="left">{{object.Serie}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Inventario</th>
+                  <td align="left">{{object.Inventario}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Nombre de la Empresa</th>
+                  <td align="left">{{object.Empresa}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Numero de Orden de Trabajo</th>
+                  <td align="left">{{object.Numero}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Tipo de Mantenimiento</th>
+                  <td align="left">{{object.Tipo_Mantenimiento}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Mantenimiento Critico/Relevante</th>
+                  <td align="left">{{object.Critico_Relevante}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Nombre del Tecnico</th>
+                  <td align="left">{{object.Tecnico}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Horas Fuera de Servicio</th>
+                  <td align="left">{{object.Horas}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Detalle del Mantenimiento</th>
+                  <td align="left">{{object.Detalle}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Observaciones</th>
+                  <td align="left">{{object.Observaciones}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Fecha de Equipo Operativo</th>
+                  <td align="left">{{object.Fecha_Equipo_Operativo}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Fecha de Baja del Equipo</th>
+                  <td align="left">{{object.Fecha_Equipo_Baja}}</td>
+                </tr>
+                <tr>
+                    {% if object.Adjuntar_Archivo %}
+                    <th scope="row">Pauta</th>
+                    <td ><a href="{{ object.Adjuntar_Archivo.url }}">Descargar</a></td>
+                    {% endif %}
+                </tr>
+              </tbody>
+            </table>
+	         </tbody>
+	       </table>
+      </div>
+      
+     <div class="row">
+        <div class="text-center col-lg-6 offset-lg-3"></div>
+    </div>
+  </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Detalles...{% endblock %}
+{% block breadcrumb %}Detalle de Orden de Trabajo{% endblock %}
+{% block cardtitle %}{% include 'ordenes/includes/ordenes_menu.html' %}{% endblock %}
+{% block content %}
+
+<div class="container">
+      <h1 align='center'>{{object.fecha|date:"d-m-Y"}}/{{object.estadoOT}}</h1>
+			<table width="50%" border="1" class="table table-bordered table-striped">
+				<tbody>
+				<tr>
+					<th scope="row">
+					<table border="1" class="table table-bordered table-striped">
+					<tbody>
+						<tr>
+							<th scope="row">Numero de Folio </th>
+            				<td align="left">{{object.numerofolio}}</td>				
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Fecha OT: </th>
+            				<td align="left">{{object.fecha}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Detalle</th>
+            				<td align="left">{{object.detalle}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Servicio que Solicita</th>
+            				<td align="left">{{object.serviciosolicita}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Estado de la OT</th>
+            				<td align="left">{{object.estadoOT}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Valor Mano de Obra</th>
+            				<td align="left">{{object.valormano}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Valor Materiales</th>
+            				<td align="left">{{object.valormateriales}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Observaciones</th>
+            				<td align="left">{{object.observaciones}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Fecha de Creacion </th>
+            				<td align="left">{{object.created}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Fecha de Modificacion</th>
+            				<td align="left">{{object.updated}}</td>
+						</tr>
+					</tbody>
+					</table>
+			  </tr>
+		  </tbody>
+	  </table>
+</div>
+{% endblock %}

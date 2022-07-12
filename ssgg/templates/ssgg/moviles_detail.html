@@ -1,0 +1,79 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Detalle{% endblock %}
+{% block breadcrumb %}Detalle de Moviles{% endblock %}
+{% block cardtitle %}{% include 'ssgg/includes/movil_menu.html' %}{% endblock %}
+{% block content %}
+
+<div class="container">
+      <h1 align='center'>{{object.patente|upper}}/{{object.estado|upper}}</h1>
+			<table width="50%" border="1" class="table table-bordered table-striped">
+				<tbody>
+				<tr>
+					<th scope="row">
+					<table border="1" class="table table-bordered table-striped">
+					<tbody>
+						<tr>
+						<th scope="row">Numero de Patente: </th>
+            <td align="left">{{object.patente}}</td>				
+						</tr>
+						<tr>
+						<th scope="row"><p align="left">Marca: </th>
+            <td align="left">{{object.marca}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p align="left">Modelo:</th>
+            <td align="left">{{object.modelo}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p align="left">Numero de Motor</th>
+            <td align="left">{{object.numeromotor}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p align="left">Numero de Chasis</th>
+            <td align="left">{{object.numerochasis}}</td>
+						</tr>
+            <tr>
+						<th scope="row"><p align="left">Tipo de Movil</th>
+            <td align="left">{{object.tipo}}</td>
+						</tr>
+            <tr>
+						<th scope="row"><p align="left">Fecha de Proxima Revisión Tecnica</th>
+            <td align="left">{{object.fechar}}</td>
+						</tr>
+            <tr>
+						<th scope="row"><p align="left">Fecha de Ingreso</th>
+            <td align="left">{{object.fechai}}</td>
+						</tr>
+            <tr>
+						<th scope="row"><p align="left">Tipo de Combustible</th>
+            <td align="left">{{object.combustible}}</td>
+						</tr>
+            <tr>
+						<th scope="row"><p align="left">Fecha de Baja</th>
+            <td align="left">{{object.baja}}</td>
+						</tr>
+            <tr>
+						<th scope="row"><p align="left">Kilometraje de Mantencion</th>
+            <td align="left">{{object.kilometraje}}</td>
+						</tr>
+            <tr>
+						<th scope="row"><p align="left">Servicio:</th>
+            <td align="left">{{object.servicio}}</td>
+						</tr>
+						<th scope="row"><p align="left">Condicion del Movil</th>
+            <td align="left">{{object.estado}}</td>
+						</tr>
+						<th scope="row"><p align="left">Fecha de Creacion</th>
+            <td align="left">{{object.created}}</td>
+						</tr>
+						<th scope="row"><p align="left">Fecha de Actualizacion</th>
+            <td align="left">{{object.updated}}</td>
+						</tr>
+					</tbody>
+					</table>
+			  </tr>
+		  </tbody>
+	  </table>
+</div>
+{% endblock %}

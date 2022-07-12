@@ -1,0 +1,36 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Actualizar..{% endblock %}
+{% block breadcrumb %}ACTUALIZAR EQUIPO MEDICO:{% endblock %}
+{% block cardtitle %}{% include 'externo/includes/externo_menu.html' %}{% endblock %}
+{% block content %}
+<font face="verdana">
+
+<div class="container">
+  <div style="text-align:center;">
+    
+          {% if 'ok' in request.GET %}
+            <p style="color:green;">
+              Página editada correctamente. 
+              <a href="{% url 'matenimientoexterno' object.id %}">Haz clic aquí para ver el resultado</a>.
+            </p>
+          {% endif %}
+  <div class="container" style="padding-top:30px; text-align:left;">
+          <table width="100%" border="2" class="table table-bordered table-striped">
+           
+            <form method="post" enctype="multipart/form-data">{% csrf_token %}
+               {{ form.as_table }}
+            </table>  
+              <div style="padding-top:30px; text-align:center;">
+                <input type="submit" class="btn btn-primary btn-block" name="submit" id="submit" value="Guardar">
+             </div>
+             </form>
+     <div class="row">
+        <div class="text-center col-lg-6 offset-lg-3">
+          <div style="padding-top:30px; text-align:center;"></div>
+       </div>
+    </div>
+  </div>
+  </div>
+</div>
+{% endblock %}

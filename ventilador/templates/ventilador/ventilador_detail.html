@@ -1,0 +1,141 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+<div class="container">
+<form method="post">{% csrf_token %}
+    <div style="text-align:center;">
+       <h1>PAUTA DE MANTENIMIENTO PREVENTIVO</h1>
+       <p>EQUIPOS DE SOPORTE VITAL</p>
+       <p>VENTILADOR MECANICO</p>
+		<label for="date">{{object.fecha}}</label>
+	</div>
+	
+	<div class="container">
+		<div class="row text-center">
+			<table width="90%" border="2" class="table table-bordered table-striped">
+			<tbody>
+			<th scope="row"><p>Servicio</p></th>
+				<td><p>	
+					{{object.servicio}}
+				</p></td>
+					<th scope="row"><p>N Inventario</p></th>
+					<td>
+					{{object.inventario}}
+					</td>
+				<tr>
+					<th scope="row"><p>Equipo</p>
+					</th>
+					<td>{{object.nombre}}				</td>
+					<th scope="row"><p>Marca</p>
+					</th>
+					<td>{{object.marca}}
+					</td>             
+				</tr>
+				<tr>
+				<th scope="row"><p>Modelo</p></th>
+				<td>{{object.modelo}}</td>
+					<th scope="row"><p>N° Serie</p></th>
+				<td>{{object.serie}}</td>
+				</tr>
+			</tbody>
+			</table>
+		</div>	
+		<div class="row">
+			<table width="90%" border="1" class="table table-bordered table-striped">
+				<tbody>
+				<tr>
+					<th scope="row">
+					<table width="100%" border="1" class="table table-bordered table-striped">
+					<tbody>
+						<tr>
+						<th scope="row" width="95%"><p>Revisión de Funcionamiento, aspecto general</p></th>
+						<td>{{object.pauta1}}</td>
+						
+						</tr>
+						<tr>
+						<th scope="row"><p>Chequeo y revisión de juntas y filtros que por desgaste se recomienda   cambiar cada 2 años</p></th>
+						<td> {{object.pauta2}} </td>
+						
+						</tr>
+						<tr>
+						<th scope="row"><p>Prueba de seguridad eléctrica</p></th>
+						<td> {{object.pauta3}}  </td>
+						
+						</tr>
+						<tr>
+						<th scope="row"><p>Comprobación baterías y cargador</p></th>
+						<td>{{object.pauta4}} </td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Comprobación y medida de parámetros respiratorios</p></th>
+						<td>{{object.pauta5}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Prueba de seguridad neumática. Válvula de aire de emergencia</p></th>
+						<td>{{object.pauta6}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Comprobación de regulador de oxigeno</p></th>
+						<td>{{object.pauta7}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Control de los accesorios</p></th>
+						<td>{{object.pauta8}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Comprobación de manómetro</p></th>
+						<td>{{object.pauta9}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Prueba funcionamiento</p></th>
+						<td> {{object.pauta10}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Ajuste de componentes y calibración</p></th>
+						<td>{{object.pauta11}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Equipo Operativo</p></th>
+						<td>{{object.pauta12}}</td>
+						</tr>
+						
+					</tbody>
+					</table>
+					<div style="text-align:center;">
+						<p>IDENTIFICACION DE PERSONAL CALIFICADO</p>
+				  </div>
+				  {% include 'core/includes/firmas.html' %}
+				  <table width="100%" border="2" class="table table-bordered table-striped">
+		  <tbody>
+			  <tr>
+			  <table width="100%" border="1" class="table table-bordered table-striped">
+			  <p>OBSERVACIONES</P>
+			  <td align="left">{{object.justificacion}}</td>
+			  
+			  <table width="100%" border="2" class="table table-bordered table-striped">
+			  <div style="padding-top:10px;"></div>
+			  <p align="center">Una vez Impreso el documento debe ser validado a traves de los timbres de CC. MMTTO y CR. Logistica</p>
+			  <tr>
+				  <td style="height:200px; width:49%" align="center">Timbre CR. Logistica</td>
+				  <td style="height:200px; width:2%"></td>
+				  <td style="height:200px; width:49%" align="center">Timbre CC. MMTTO</td>
+			  </tr>
+			  </table>
+			  </table>
+			  </tr>
+		  </tbody>
+	  </table>
+				  </th>
+			  </tr>
+			  </tbody>
+		  </table>
+		  <div> 
+		  
+	  </div>
+		  </div>
+	  </div>
+	  </div>
+	  </div>
+	  </div>
+	  {% endblock %}

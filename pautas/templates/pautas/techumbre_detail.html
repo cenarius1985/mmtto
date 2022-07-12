@@ -1,0 +1,133 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+<div class="container">
+    <div style="padding-top:20px; text-align:center;">
+       <h1>PAUTA DE MANTENIMIENTO PREVENTIVO</h1>
+       <p>INSTALACIONES RELEVANTES PARA LA SEGURIDAD DE LOS PACIENTES</p>
+       <p>TECHUMBRE</p>
+		<label for="date">{{object.fecha}}</label>
+	</div>
+	
+	<div class="container">
+		<div class="row text-center">
+			<table width="90%" border="2" class="table table-bordered table-striped">
+			<tbody>
+			<th scope="row"><p>Servicio</p></th>
+				<td><p>	
+					{{object.servicio}}
+				</p></td>
+					<th scope="row"><p>N Inventario</p></th>
+					<td>
+					{{object.inventario}}
+					</td>
+				<tr>
+					<th scope="row"><p>Equipo</p>
+					</th>
+					<td>{{object.nombre}}				</td>
+					<th scope="row"><p>Marca</p>
+					</th>
+					<td>{{object.marca}}
+					</td>             
+				</tr>
+				<tr>
+				<th scope="row"><p>Modelo</p></th>
+				<td>{{object.modelo}}</td>
+					<th scope="row"><p>N° Serie</p></th>
+				<td>{{object.serie}}</td>
+				</tr>
+			</tbody>
+			</table>
+		</div>	
+		<div class="row">
+			<table width="90%" border="1" class="table table-bordered table-striped">
+				<tbody>
+				<tr>
+					<th scope="row">
+					<table width="100%" border="1" class="table table-bordered table-striped">
+					<tbody>
+						<tr>
+						<th scope="row" width="95%"><p>Limpieza de techumbre</p></th>
+						<td>{{object.pauta1}}</td>
+						
+						</tr>
+						<tr>
+						<th scope="row"><p>Limpieza de canaletas</p></th>
+						<td> {{object.pauta2}} </td>
+						
+						</tr>
+						<tr>
+						<th scope="row"><p>Busqueda e identificacion de goteras</p></th>
+						<td> {{object.pauta3}}  </td>
+						
+						</tr>
+						<tr>
+						<th scope="row"><p>Reparacion de goteras</p></th>
+						<td>{{object.pauta4}} </td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Reparacion de techumbre</p></th>
+						<td>{{object.pauta5}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Estructura Operativa</p></th>
+						<td>{{object.pauta6}}</td>
+						</tr>
+					</tbody>
+					</table>
+						<div style="padding-top:10px; text-align:center;">
+			      <p>IDENTIFICACION DE PERSONAL CALIFICADO</p>
+            </div>
+			<table width="100%" border="2" class="table table-bordered table-striped">
+				<tbody>
+				<tr>
+					<th width="10%" scope="row"></th>
+					<td width="40%" ><p>Nombre</p></td>
+					<td width="20%"><p>Firma</p></td>
+					<td width="20%"><p>Timbre</p></td>
+				</tr>
+				<tr>
+							<th scope="row"><p>Responsable de MMTTO</p></th>
+							<td>{{object.responsable}}</td>
+							<td><img src="{% static 'core/img/firma2.jpg' %}" width="100%" height="7%" align="center"></td>
+							<td><img src="{% static 'core/img/timbre2.jpg' %}" width="70%" height="8%" align="center"></td>
+				</tr>
+				</tbody>
+			</table>
+				<div style="padding-top:10px;"></div>
+			<table width="100%" border="2" class="table table-bordered table-striped">
+	<tbody>
+		<tr>
+		<table width="100%" border="1" class="table table-bordered table-striped">
+		<p>OBSERVACIONES</P>
+		<td align="left">{{object.justificacion}}</td>
+		
+		<table width="100%" border="2" class="table table-bordered table-striped">
+		<div style="padding-top:10px;"></div>
+		<p align="center">Una vez Impreso el documento debe ser validado a traves de los timbres de CC. MMTTO y CR. Logistica</p>
+		<tr>
+			<td style="height:200px; width:49%" align="center">Timbre CR. Logistica</td>
+			<td style="height:200px; width:2%"></td>
+			<td style="height:200px; width:49%" align="center">Timbre CC. MMTTO</td>
+		</tr>
+		</table>
+		</table>
+		<div style="padding-top:10px;"></div>
+		</tr>
+	</tbody>
+</table>
+			</th>
+		</tr>
+		</tbody>
+	</table>
+	<div> 
+	<div style="padding-top:50px;"></div>
+	
+</div>
+	</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

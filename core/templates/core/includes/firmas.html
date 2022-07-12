@@ -1,0 +1,25 @@
+{% load static %}
+<table width="100%" border="2" class="table table-bordered table-striped">
+    <tbody>
+    <tr>
+        <th width="10%" scope="row"></th>
+        <td width="40%" ><p>Nombre</p></td>
+        <td width="20%"><p>Firma</p></td>
+        <td width="20%"><p>Timbre</p></td>
+    </tr>
+        <tr>
+                <th scope="row"><p>Tecnico 1</p></th>
+                <td>{{object.tecnico1}}</td>
+                <td><img src="{% static 'core/img/firma1.jpg' %}" ></td>
+                <td><img src="{% static 'core/img/timbre1.jpg' %}" ></td>
+    </tr>
+    <tr>
+                <th scope="row"><p>Responsable de MMTTO</p></th>
+                <td>{{object.responsable}}</td>
+                <td><img src="{% static 'core/img/firma2.jpg' %}" align="center"></td>
+                <td><img src="{% static 'core/img/timbre2.jpg' %}" align="center"></td>
+    </tr>
+    </tbody>
+</table>
+
+

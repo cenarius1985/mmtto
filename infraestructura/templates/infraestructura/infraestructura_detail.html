@@ -1,0 +1,46 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Detalles...{% endblock %}
+{% block breadcrumb %}Detalle de Orden de Trabajo{% endblock %}
+{% block cardtitle %}{% include 'infraestructura/includes/infraestructura_menu.html' %}{% endblock %}
+{% block content %}
+
+<div class="container">
+      <h1 align='center'>{{object.sistema|upper}}/{{object.frecuencia|upper}}</h1>
+			<table width="50%" border="1" class="table table-bordered table-striped">
+				<tbody>
+				<tr>
+					<th scope="row">
+					<table border="1" class="table table-bordered table-striped">
+					<tbody>
+						<tr>
+							<th scope="row">Sistema</th>
+            				<td align="left">{{object.sistema}}</td>				
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Ubicacion</th>
+            				<td align="left">{{object.ubicacion}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Frecuencia</th>
+            				<td align="left">{{object.frecuencia}}</td>
+						</tr>
+						<tr>
+							<th scope="row"><p align="left">Responsable</th>
+            				<td align="left">{{object.responsable}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Fecha de Creacion </th>
+            				<td align="left">{{object.created}}</td>
+						</tr>
+            			<tr>
+							<th scope="row"><p align="left">Fecha de Modificacion</th>
+            				<td align="left">{{object.updated}}</td>
+						</tr>
+					</tbody>
+					</table>
+			  </tr>
+		  </tbody>
+	  </table>
+</div>
+{% endblock %}

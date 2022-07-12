@@ -1,0 +1,87 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+<div class="container">
+    <div style="text-align:center">
+		<td><img src="{% static 'core/img/logo4.png' %}" width="30%" height="7%" align="center"></td>
+       <h1>PAUTA DE BAJA EQUIPOS MEDICOS E INDUSTRIALES</h1>
+	   <p>Hospital Claudio Vicuña</p>
+		<label for="date">{{object.fecha}}</label>
+		
+	</div>
+	
+	<div class="container">
+		<div class="row text-center">
+			<table width="90%" border="2" class="table table-bordered table-striped">
+			<tbody>
+			<th scope="row"><p>Servicio</p></th>
+				<td><p>	
+					{{object.servicio}}
+				</p></td>
+					<th scope="row"><p>N Inventario</p></th>
+					<td>
+					{{object.inventario}}
+					</td>
+				<tr>
+					<th scope="row"><p>Equipo</p>
+					</th>
+					<td>{{object.nombre}}				</td>
+					<th scope="row"><p>Marca</p>
+					</th>
+					<td>{{object.marca}}
+					</td>             
+				</tr>
+				<tr>
+				<th scope="row"><p>Modelo</p></th>
+				<td>{{object.modelo}}</td>
+					<th scope="row"><p>N° Serie</p></th>
+				<td>{{object.serie}}</td>
+				</tr>
+			</tbody>
+			</table>
+		</div>	
+		<div class="row">
+			
+				<table width="100%" border="2" class="table table-bordered table-striped">
+					<tbody>
+						<div style="padding-top:10px; text-align:center;">
+							<p>INFORME TECNICO</p>
+						</div>
+						<tr>
+							<td>{{object.justificacion}}</td>
+						</tr>
+					</tbody>
+				</table>
+				<div style="padding-top:10px; text-align:center">
+			      <p>IDENTIFICACION DE PERSONAL CALIFICADO</p>
+            	</div>
+				<table width="100%" border="2" class="table table-bordered table-striped">
+					<tbody>
+					<tr>
+						<th scope="row"></th>
+						<td><p>Nombre</p></td>
+						<td><p>Firma</p></td>
+						<td><p>Timbre</p></td>
+					</tr>
+					<tr>
+						<th scope="row"><p>Tecnico 1</p></th>
+						<td><p>Oscar Gonzalez</p></td>
+						<td><img src="{% static 'core/img/firma1.jpg' %}" width="70%" height="5%"></td>
+						<td><img src="{% static 'core/img/timbre1.jpg' %}" width="70%" height="20%"></td>
+					</tr>
+					<tr>
+					
+					<tr>
+						<th scope="row" width="20%"><p>Responsable de MMTTO</p></th>
+						<td  width="30%">{{object.responsable}}</td>
+						<td><img src="{% static 'core/img/firma2.jpg' %}" width="70%" height="7%" align="center"></td>
+						<td><img src="{% static 'core/img/timbre2.jpg' %}" width="50%" height="7%" align="center"></td>
+					</tr>
+					</tbody>
+				</table>
+				
+			</div>
+			
+  
+{% endblock %}

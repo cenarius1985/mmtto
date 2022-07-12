@@ -1,0 +1,55 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Envio Ropa{% endblock %}
+{% block breadcrumb %}KILOS POR SERVICIO{% endblock %}
+{% block cardtitle %}{% include 'kilosservicio/includes/kilosservicio_menu.html' %}{% endblock %}
+{% block content %}
+
+<div class="card">
+            <div class="card-header">
+              <table style="margin: 0 auto;">
+                    <form action="{% url 'kilosservicio:filtrokilosservicio' %}" method="GET"> {% csrf_token %}
+                      <td class="active"><input type="text" name="buscar" class="form-control"></td>
+                      <td class="active"><input type="submit" value="BUSCAR" class="btn btn-success"></td>
+                    </form>
+              </table>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                  <th><i class='fas fa-cog' style='font-size:20px;color:black'></i></th>
+                  <th><i class='fas fa-arrow-alt-circle-down' style='font-size:20px;color:black'></i></th>
+                  <th><i class="fa fa-trash" style="font-size:20px"></i></th>
+                  <th>ID</th>
+                  <th>Fecha</th>
+                  <th>Unidad/CC</th>
+                  <th>Cantidad (Kilos)</th>
+               
+                </tr>
+                </thead>
+                {% for article in object_list|dictsort:"id" reversed %}
+                <tbody>
+                <tr>
+                  <td class="active"><a href="{% url 'kilosservicio:detailkilosservicio' article.id %}"><i class='fas fa-cog' style='font-size:20px;color:green'></i></a></td>
+                  <td class="active"><a href="{% url 'kilosservicio:updatekilosservicio' article.id %}"><i class='fab fa-adn' style='font-size:20px;color:green'></i></a></td>
+                  <td class="active"><a href="{% url 'kilosservicio:deletekilosservicio' article.id %}"><i class="fa fa-trash" style="font-size:20px;color:red"></i></a></td>
+                  <td class="active">{{article.id}}</td>
+                  <td class="active">{{article.Fecha|date:"d-m-Y"}}</td>
+                  <td class="success">{{article.serviciosolicita}}</td>
+                  <td class="active">{{article.Cantidad}}</td>
+                </tr>
+                {% empty %}
+                        <li>No articles yet.</li>
+                {% endfor %}
+                </tbody>
+                </tfoot>
+              </table>
+<!-- #############################Paginacion################################### -->
+            {% include 'core/includes/paginacion.html' %}   
+<!-- #############################Termino de paginacion################################### -->
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+{% endblock %}

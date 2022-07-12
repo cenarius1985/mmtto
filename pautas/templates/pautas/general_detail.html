@@ -1,0 +1,164 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+<div class="container">
+    <div style="padding-top:20px; text-align:center;">
+       <h1>PAUTA DE MANTENIMIENTO PREVENTIVO</h1>
+       <p>EQUIPOS RELEVANTES</p>
+		<label for="date">{{object.fecha}}</label>
+	</div>
+	
+	<div class="container">
+		<div class="row text-center">
+			<table width="90%" border="2" class="table table-bordered table-striped">
+			<tbody>
+			<th scope="row"><p>Servicio</p></th>
+				<td><p>	
+					{{object.servicio}}
+				</p></td>
+					<th scope="row"><p>N Inventario</p></th>
+					<td>
+					{{object.inventario}}
+					</td>
+				<tr>
+					<th scope="row"><p>Equipo</p>
+					</th>
+					<td>{{object.nombre}}				</td>
+					<th scope="row"><p>Marca</p>
+					</th>
+					<td>{{object.marca}}
+					</td>             
+				</tr>
+				<tr>
+				<th scope="row"><p>Modelo</p></th>
+				<td>{{object.modelo}}</td>
+					<th scope="row"><p>N° Serie</p></th>
+				<td>{{object.serie}}</td>
+				</tr>
+			</tbody>
+			</table>
+		</div>	
+		<div class="row">
+			<table width="90%" border="1" class="table table-bordered table-striped">
+				<tbody>
+				<tr>
+					<th scope="row">
+					<table width="100%" border="1" class="table table-bordered table-striped">
+					<tbody>
+						<tr>
+						<th scope="row" width="95%"><p>Inspección inicial, se revisa el estado general del equipo</p></th>
+						<td>{{object.pauta1}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Inspeccion de conexión electrica</p></th>
+						<td> {{object.pauta2}} </td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Inspeccion de Botoneras, teclados, pantalla touch</p></th>
+						<td> {{object.pauta3}}  </td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Inspeccion de Estructura (libre de Golpes, Rayaduras)</p></th>
+						<td>{{object.pauta4}} </td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Inspeccion de Instalaciones Sanitarias</p></th>
+						<td>{{object.pauta5}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Inspeccion de Instalaciones Aspiracion</p></th>
+						<td>{{object.pauta6}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Inspeccion de Sistema Neumatico</p></th>
+						<td>{{object.pauta7}}</td>
+						</tr>
+						<tr>
+						<tr>
+						<th scope="row"><p>Inspeccion de Sistema Hidraulico</p></th>
+						<td>{{object.pauta8}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Inspeccion de Sistema Mecanico</p></th>
+						<td>{{object.pauta9}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Calibracion o Autocalibracion del Equipo</p></th>
+						<td>{{object.pauta10}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Limpieza del Equipo</p></th>
+						<td>{{object.pauta11}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Prueba de Funcionamiento</p></th>
+						<td>{{object.pauta12}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Lubricacion del equipo</p></th>
+						<td>{{object.pauta13}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Inspeccion de Accesorios</p></th>
+						<td>{{object.pauta14}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Limpieza de Filtros</p></th>
+						<td>{{object.pauta15}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Inspeccion del Sistema de Calefaccion</p></th>
+						<td>{{object.pauta16}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Inspeccion de ruedas y Soporte</p></th>
+						<td>{{object.pauta17}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p>Equipo Operativo</p></th>
+						<td>{{object.pauta18}}</td>
+						</tr>
+						
+					</tbody>
+					</table>
+						<div style="padding-top:10px; text-align:center;">
+			      <p>IDENTIFICACION DE PERSONAL CALIFICADO</p>
+            </div>
+			{% include 'core/includes/firmas.html' %}
+				<div style="padding-top:10px;"></div>
+			<table width="100%" border="2" class="table table-bordered table-striped">
+	<tbody>
+		<tr>
+		<table width="100%" border="1" class="table table-bordered table-striped">
+		<p>OBSERVACIONES</P>
+		<td align="left">{{object.justificacion}}</td>
+		
+		<table width="100%" border="2" class="table table-bordered table-striped">
+		<div style="padding-top:10px;"></div>
+		<p align="center">Una vez Impreso el documento debe ser validado a traves de los timbres de CC. MMTTO y CR. Logistica</p>
+		<tr>
+			<td style="height:200px; width:49%" align="center">Timbre CR. Logistica</td>
+			<td style="height:200px; width:2%"></td>
+			<td style="height:200px; width:49%" align="center">Timbre CC. MMTTO</td>
+		</tr>
+		</table>
+		</table>
+		<div style="padding-top:10px;"></div>
+		</tr>
+	</tbody>
+</table>
+			</th>
+		</tr>
+		</tbody>
+	</table>
+	<div> 
+	<div style="padding-top:50px;"></div>
+	
+</div>
+	</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

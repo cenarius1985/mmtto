@@ -1,0 +1,70 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Actualizar...{% endblock %}
+{% block breadcrumb %}Detalle de Cartola{% endblock %}
+{% block cardtitle %}{% include 'ssgg/includes/cartola_menu.html' %}{% endblock %}
+{% block content %}
+
+<div class="container">
+      <h1 align='center'>{{object.patente|upper}}/{{object.pauta1|upper}}</h1>
+			<table width="50%" border="1" class="table table-bordered table-striped">
+				<tbody>
+				<tr>
+					<th scope="row">
+					<table border="1" class="table table-bordered table-striped">
+					<tbody>
+						<tr>
+						<th scope="row">Numero de Patente: </th>
+            <td align="left">{{object.patente}}</td>				
+						</tr>
+						<tr>
+						<th scope="row"><p align="left">Fecha: </th>
+            <td align="left">{{object.fecha}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p align="left">Kilometraje Inicial:</th>
+            <td align="left">{{object.kmi}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p align="left">Kilometraje Final</th>
+            <td align="left">{{object.kmf}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p align="left">Kilometraje Diario Recorrido</th>
+            <td align="left">{{object.kmdt}}</td>
+						</tr>
+            <tr>
+						<th scope="row"><p align="left">Tipo de Combustible</th>
+            <td align="left">{{object.combustible}}</td>
+						</tr>
+            <tr>
+						<th scope="row"><p align="left">Cantidad de Litros</th>
+            <td align="left">{{object.litros}}</td>
+						</tr>
+            <tr>
+						<th scope="row"><p align="left">Valor Pagado</th>
+            <td align="left">{{object.valor}}</td>
+						</tr>
+            <tr>
+						<th scope="row"><p align="left">Unidad de origen que Emitio la Orden</th>
+            <td align="left">{{object.uo}}</td>
+						</tr>
+            <tr>
+						<th scope="row"><p align="left">Unidad o Servicio del Movil</th>
+            <td align="left">{{object.pauta1}}</td>
+						</tr>
+            <tr>
+						<th scope="row"><p align="left">Fecha de Creacion </th>
+            <td align="left">{{object.created}}</td>
+						</tr>
+            <tr>
+						<th scope="row"><p align="left">Fecha de Modificacion</th>
+            <td align="left">{{object.updated}}</td>
+						</tr>
+					</tbody>
+					</table>
+			  </tr>
+		  </tbody>
+	  </table>
+</div>
+{% endblock %}

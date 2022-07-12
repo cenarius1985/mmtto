@@ -1,0 +1,152 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div style="padding-top:1px; text-align:center;">
+       <h1>PAUTA DE MANTENIMIENTO PREVENTIVO</h1>
+       <p>EQUIPOS DE MONITORIZACIÓN HEMODINÁMICAS</p>
+       <p>OXIMETRO DE PULSO</p>
+	   <p>{{object.fecha}}</p>
+
+
+	<div class="container" >
+		<div class="row text-center" >
+			<table width="90%" border="2"class="table table-bordered table-striped" >
+			<tbody>
+			<th scope="row"><p>Servicio</p></th>
+				<td><p>	
+					{{object.servicio}}
+				</p></td>
+					<th scope="row"><p>N Inventario</p></th>
+					<td>
+					{{object.inventario}}
+					</td>
+				<tr>
+					<th scope="row"><p>Equipo</p>
+					</th>
+					<td>{{object.nombre}}			</td>
+					<th scope="row"><p>Marca</p>
+					</th>
+					<td>{{object.marca}}
+					</td>             
+				</tr>
+				<tr>
+				<th scope="row"><p>Modelo</p></th>
+				<td>{{object.modelo}}</td>
+				
+					<th scope="row"><p>N° Serie</p></th>
+				<td>{{object.serie}}</td>
+				</tr>
+			</tbody>
+			</table>
+		</div>	
+		<div class="row" style="padding-top:20px;">
+			<table width="90%" border="1" class="table table-bordered table-striped">
+				<tbody>
+				<tr>
+					<th scope="row">
+					<table width="100%" border="1" class="table table-bordered table-striped">
+					<tbody>
+						<tr>
+						<th scope="row" width="95%"><p align="left">Revisión de Funcionamiento</p></th>
+						<td >{{object.pauta1}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p align="left">Pruebas de Funcionamiento con test internos del equipo</p></th>
+						<td> {{object.pauta2}} </td>
+						</tr>
+						<tr>
+						<th scope="row"><p align="left">Chequeo de batería de respaldo</p></th>
+						<td> {{object.pauta3}}  </td>
+						</tr>
+						<tr>
+						<th scope="row"><p align="left">Revisión y chequeo externo del gabinete del equipo</p></th>
+						<td>{{object.pauta4}} </td>
+						</tr>
+						<tr>
+						<th scope="row"><p align="left">No existen grietas ni botones dañados</p></th>
+						<td>{{object.pauta5}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p align="left">No hay distorsión en la pantalla</p></th>
+						<td>{{object.pauta6}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p align="left">La forma de Onda ECG, FC y el sonido QRS son correctos</p></th>
+						<td>{{object.pauta7}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p align="left">La forma de Onda y la FR son mostrados en forma correcta</p></th>
+						<td>{{object.pauta8}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p align="left">La forma de onda del pulso y el SPO2, datos pletismograficos son mostrados correctamente</p></th>
+						<td>{{object.pauta9}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p align="left">Los datos PANI (sistolica,Diastolica y media) Son aceptables</p></th>
+						<td> {{object.pauta10}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p align="left">ELos conectores multiparametricos reconocen los distintos cables</p></th>
+						<td>{{object.pauta11}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p align="left">Los limites de las alarmas funcionan correctamente</p></th>
+						<td>{{object.pauta12}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p align="left">El sonido de las alarmas funcionan correctamente</p></th>
+						<td>{{object.pauta13}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p align="left">El cable de alimentación eléctrica cuenta con toma de tierra</p></th>
+						<td>{{object.pauta14}}</td>
+						</tr>
+						<tr>
+						<th scope="row"><p align="left">Los datos de configuración se guardan en el sistema operativo del equipo</p></th>
+						<td>{{object.pauta15}}</td>
+						</tr>
+						<th scope="row"><p align="left">Equipo Operativo</p></th>
+						<td>{{object.pauta16}}</td>
+						</tr>
+					</tbody>
+					{% include 'core/includes/firmas.html' %}
+						<div style="padding-top:10px;"></div>
+					<table width="100%" border="2" class="table table-bordered table-striped">
+			<tbody>
+				<tr>
+				<table width="100%" border="1" class="table table-bordered table-striped">
+				<p>OBSERVACIONES</P>
+				<td align="left">{{object.justificacion}}</td>
+				
+				<table width="100%" border="2" class="table table-bordered table-striped">
+				<div style="padding-top:10px;"></div>
+				<p align="center">Una vez Impreso el documento debe ser validado a traves de los timbres de CC. MMTTO y CR. Logistica</p>
+				<tr>
+					<td style="height:200px; width:49%" align="center">Timbre CR. Logistica</td>
+					<td style="height:200px; width:2%"></td>
+					<td style="height:200px; width:49%" align="center">Timbre CC. MMTTO</td>
+				</tr>
+				</table>
+				</table>
+				<div style="padding-top:10px;"></div>
+				</tr>
+			</tbody>
+		</table>
+					</th>
+				</tr>
+				</tbody>
+			</table>
+			<div> 
+			<div style="padding-top:50px;"></div>
+			
+		</div>
+			</div>
+    </div>
+  </div>
+  </div>
+</div>
+{% endblock %}

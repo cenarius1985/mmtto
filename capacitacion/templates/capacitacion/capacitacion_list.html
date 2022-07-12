@@ -1,0 +1,54 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Listado{% endblock %}
+{% block breadcrumb %}Cursos de Capacitacion{% endblock %}
+{% block cardtitle %}{% include 'capacitacion/includes/capacitacion_menu.html' %}{% endblock %}
+{% block content %}
+
+<div class="card">
+                       <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th><i class='fas fa-cog' style='font-size:20px;color:black'></i></th>
+                  {% if request.user.is_superuser %}
+                  <th><i class='fas fa-arrow-alt-circle-down' style='font-size:20px;color:black'></i></th>
+                  <th><i class="fa fa-trash" style="font-size:20px"></i></th>
+                  {% endif %}
+                  <th>ID</th>
+                  <th>Fecha</th>
+                  <th>Nombre Curso</th>
+                  <th>Modulo</th>
+                  <th>Nombre de la Clase</th>
+                </tr>
+                </thead>
+                {% for article in object_list %}
+                <tbody>
+                <tr>
+                  <td class="active"><a href="{% url 'capacitacion:detailcapacitacion' article.id %}"><i class='fas fa-cog' style='font-size:20px;color:green'></i></a></td>
+                  {% if request.user.is_superuser %}
+                  <td class="active"><a href="{% url 'capacitacion:updatecapacitacion' article.id %}"><i class='fab fa-adn' style='font-size:20px;color:green'></i></a></td>
+                  <td class="active"><a href="{% url 'capacitacion:deletecapacitacion' article.id %}"><i class="fa fa-trash" style="font-size:20px;color:red"></i></a></td>
+                  {% endif %}
+                  <td class="active">{{article.id}}</td>
+                  <td class="success">{{article.fecha|date:"d-m-Y"}}</td>
+                  <td class="active">{{article.nombre|upper}}</td>
+                  <td class="active">{{article.modulo|upper}}</td>
+                  <td class="active"><a href="{% url 'capacitacion:detailcapacitacion' article.id %}"><i>{{article.titulo|upper}}</i></a></td>
+                  
+                </tr>
+                {% empty %}
+                        <li>No articles yet.</li>
+                {% endfor %}
+                </tbody>
+                </tfoot>
+              </table>
+<!-- #############################Paginacion################################### -->
+         {% include 'core/includes/paginacion.html' %}   
+<!-- #############################Termino de paginacion################################### -->
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+{% endblock %}

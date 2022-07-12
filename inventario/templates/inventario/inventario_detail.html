@@ -1,0 +1,128 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Detalle{% endblock %}
+{% block breadcrumb %}DESCRIPCION DE EQUIPO MEDICO:{% endblock %}
+{% block cardtitle %}{% include 'inventario/includes/inventario_menu.html' %}{% endblock %}
+{% block content %}
+<font face="verdana">
+<div class="container">
+  <div style="text-align:center;">
+    <h1>{{object.nombre_equipo|upper}}</h1>
+    
+  <div class="container">
+       <div class="row text-center">
+         <table width="100%" border="2" class="table table-bordered table-striped">
+           <tbody>
+            <table width="70%" border="1" align="center" class="table table-bordered table-striped">
+              <tbody align="left">
+                <tr>
+                  <th scope="row">Servicio</th>
+                  <td align="left">{{object.servicio}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Clase</th>
+                  <td align="left">{{object.clase}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Subclase</th>
+                  <td align="left">{{object.subclase}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Nombre Del Equipo</th>
+                  <td align="left">{{object.nombre_equipo}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Marca</th>
+                  <td align="left">{{object.marca}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Modelo</th>
+                  <td align="left">{{object.modelo}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Serie</th>
+                  <td align="left"> {{object.serie}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Inventario</th>
+                  <td align="left">{{object.inventario}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">N° Licitacion</th>
+                  <td align="left">{{object.licitacion}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Valor del Equipo</th>
+                  <td align="left">{{object.valor}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Fecha de Instalacion</th>
+                  <td align="left">{{object.fecha}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Vida Util</th>
+                  <td align="left">{{object.vida_util}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Tipo de Contrato</th>
+                  <td align="left">{{object.contrato}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Condicion del Equipo</th>
+                  <td align="left">{{object.estado}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Relevancia del Equipo</th>
+                  <td align="left">{{object.critico_apoyo}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Frecuencia de Mantenimiento</th>
+                  <td align="left">{{object.frecuencia}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Empresa Encargada Del Mantenimiento</th>
+                  <td align="left">{{object.empresa}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">RUT de la Empresa</th>
+                  <td align="left">{{object.rut}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Fecha de Inicio de La Garantia</th>
+                  <td align="left">{{object.garantia_inicio}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Fecha de Termino de La Garantia</th>
+                  <td align="left">{{object.garantia_final}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Fecha de Baja del Equipo</th>
+                  <td align="left">{{object.fecha_baja}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Fecha de Creacion</th>
+                  <td align="left">{{object.created}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Fecha de Actualizacion</th>
+                  <td align="left">{{object.updated}}</td>
+                </tr>
+                <tr>
+                    {% if object.Adjuntar_Archivo %}
+                    <th scope="row">Documento</th>
+                    <td ><a href="{{ object.Adjuntar_Archivo.url }}">Descargar</a></td>
+                    {% endif %}
+                </tr>
+              </tbody>
+            </table>
+	         </tbody>
+	       </table>
+      </div>
+      
+     <div class="row">
+      <div style="padding-top:40px; text-align:center;"></div>
+    </div>
+  </div>
+  </div>
+</div>
+{% endblock %}

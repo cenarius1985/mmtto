@@ -1,0 +1,18 @@
+{% load static %}
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+<link href="{% static 'pages/css/custom_ckeditor.css' %}" rel="stylesheet">
+{% if request.user.is_staff %}
+<!-- Navbar (sit on top) -->
+<nav style="margin:-2.5% 0;">
+  <div class="container-fluid" >
+      <a class="glyphicon glyphicon-home" href="{% url 'ropaexterno:ropaexterno' %}"><i class='fas fa-clipboard-list' style='font-size:20px;color:red'></i></a>
+      <a class="glyphicon glyphicon-plus" href="{% url 'ropaexterno:createropaexterno' %}"><i class='fas fa-plus-circle' style='font-size:20px;color:red'></i></a>
+      <a class="glyphicon glyphicon-plus" href="{% url 'ropaexternoexcel' %}"><i class='fas fa-arrow-alt-circle-down' style='font-size:20px;color:red'></i></a>
+      <a class="glyphicon glyphicon-plus" href="{% url 'pie-chart' %}"><i class="far fa-chart-bar" style='font-size:20px;color:red'></i></a>
+      
+  </div>
+</nav>
+
+{% endif %}
+

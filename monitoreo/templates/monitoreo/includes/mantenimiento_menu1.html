@@ -1,0 +1,18 @@
+
+{% if request.user.is_staff %}
+<!-- Navbar -->
+{% load static %}
+
+{% if request.user.is_staff %}
+<!-- Navbar (sit on top) -->
+<nav style="margin:-2.5% 0;">
+  <div class="container-fluid" >
+      <a class="glyphicon glyphicon-home" href="{% url 'monitores:monitores' %}"><i class='fas fa-clipboard-list' style='font-size:20px;color:red'></i></a>
+      <a class="glyphicon glyphicon-plus" href="{% url 'monitoreoexcel' %}"><i class='fas fa-arrow-alt-circle-down' style='font-size:20px;color:red'></i></a>
+      <a class="glyphicon glyphicon-plus" href="{% url 'pautas:pautas' %}"><i class='fas fa-book-open' style='font-size:20px;color:red'></i></a>
+  </div>
+</nav>
+
+{% endif %}
+
+{% endif %}
